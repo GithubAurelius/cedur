@@ -327,7 +327,7 @@ if ($_POST) {
     url_params.set('fg', '10020');
     url_params.set('form', 'Medikation');
     url_params.set('form_name', 'Medikation');
-    url_params.set('fid_str', '10020021,10020020,10020040,10020080,10020050,10020060,10020070,10005020');
+    url_params.set('fid_str', '10005020,10020021,10020050,10020020,10020040,10020080,10020060,10020085,10020070');
     // url_params_medikation = url_params.toString();
     tab_a['tab6'] = {};
     tab_a['tab6']['iframe'] = '_medikation';
