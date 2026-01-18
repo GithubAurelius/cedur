@@ -704,10 +704,10 @@
 
     let smiley_png = 'smileyC.png';
 
-    if (mmtt >= 101 && mmtt < 121) {
+    if (mmtt >= 101 && mmtt < 111) {
         smiley_png = 'smileyC_new_year.png';
     }
-    if (mmtt >= 121 && mmtt < 301) {
+    if (mmtt >= 111 && mmtt < 301) {
         smiley_png = 'smileyC_winter.png';
     }
     if (mmtt >= 301 && mmtt < 601) {
