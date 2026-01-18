@@ -6,8 +6,8 @@
 // an untere Ebenen der Dokumenationen zu übergeben: Beispiel: Ebenen an Räume, Patienten Geschlecht an Visite 
 $_SESSION['param']['pid'] = 90;         // Sollte immer gesetzt werden als Power-ID (Patienten/ Ebene oder Gebäude) 
 $_SESSION['param']['visite'] = 93;      // Sollte auch immer gesetzt werden als Begehung/ Patientenbesuch
-$_SESSION['param']['praxis_pid'] = 91;  // comfort Praxis-Software
-$_SESSION['param']['ext_fcid'] = 92;    // comfort Pseudonym
+$_SESSION['param']['praxis_pid'] = 91;  // comfort Praxis-Software 
+$_SESSION['param']['ext_fcid'] = 92;    // comfort Pseudonym 
 $_SESSION['param']['first_visit'] = 94; // comfort 
 $_SESSION['param']['diagnosis'] = 95;   // comfort Med
 $_SESSION['param']['geschlecht'] = 96;  // comfort Med
