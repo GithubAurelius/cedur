@@ -30,7 +30,11 @@ session_start()
 <body>
   <!-- Src anpassen -->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <iframe class="fullscreen-iframe" src="<?php echo $_SESSION['WEBROOT'].$_SESSION['PROJECT_PATH']?>info/cedur_help.pdf" title="Vollbild-Iframe" allowfullscreen></iframe>
+=======
+  <iframe class="fullscreen-iframe" src="<?php echo $_SESSION['WEBROOT'].$_SESSION['PROJECT_PATH']?>forms/info/cedur_help.pdf" title="Vollbild-Iframe" allowfullscreen></iframe>
+>>>>>>> origin/main
 =======
   <iframe class="fullscreen-iframe" src="<?php echo $_SESSION['WEBROOT'].$_SESSION['PROJECT_PATH']?>forms/info/cedur_help.pdf" title="Vollbild-Iframe" allowfullscreen></iframe>
 >>>>>>> origin/main

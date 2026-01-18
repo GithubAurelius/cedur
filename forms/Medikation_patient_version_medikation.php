@@ -134,7 +134,7 @@ function build_med_block($fcid, $med_data_a)
     $disabled = '';
     $bgcolor = '#fcfcfc';
     $is_previste_med = $med_data_a[$fcid][10020021] ?? "";
-    echo "<pre>"; echo print_r($_SESSION['rl']); echo "</pre>";
+    // echo "<pre>"; echo print_r($_SESSION['rl']); echo "</pre>";
     if ($is_previste_med) {
         $readonly = ' readonly';
         $disabled = ' disabled';
