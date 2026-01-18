@@ -151,7 +151,7 @@ function build_med_block($fcid, $med_data_a)
         <div class='col_23'>";
     $date_val = json_encode($med_data_a[$fcid][10020050] ?? '');
     if ($date_val) $date_val = str_replace('"','',$date_val);
-    echo "<br>".$date_val ;
+    // echo "<br>".$date_val ;
     if (!$date_val)
         $html_str .= "        
                 <select" . $disabled . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "'></select>
