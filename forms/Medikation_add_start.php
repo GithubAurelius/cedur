@@ -55,6 +55,19 @@ function ins_or_rep_form_X($ts, $db, $fg, $fcid, $muid, $usergroup, $fid, $fcont
     }
 }
 
+function formatDateFlexible($input) {
+    // Prüfung auf dd.mm.yyyy (z.B. 18.01.2026)
+    if (preg_match('/^(\d{2})\.(\d{2})\.(\d{4})$/', $input, $matches)) {
+        return $matches[3] . '-' . $matches[2] . '-' . $matches[1];
+    }
+    // Prüfung auf mm.yyyy (z.B. 01.2026)
+    if (preg_match('/^(\d{2})\.(\d{4})$/', $input, $matches)) {
+        return $matches[2] . '-' . $matches[1];
+    }
+    // Wenn kein Format passt, den Input einfach zurückgeben
+    return $input;
+}
+
 // main_form_submit_new_button
 $posted_param_str = $_POST['param_str'] ?? "";
 if ($posted_param_str) {
@@ -103,7 +116,8 @@ if ($_SESSION['m_uid'] == 1) {
 }
 
 
-
+if ($form_data_a[10020050])
+    $form_data_a[10020050] = formatDateFlexible($form_data_a[10020050]);
 
 $temp_a = get_query_data($db, 'forms_10005', 'fcid= ' . $form_data_a[$_SESSION['param']['visite']] . ' AND fid=10005020');
 if (count($temp_a) > 0) {
