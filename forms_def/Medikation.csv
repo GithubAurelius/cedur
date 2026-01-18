@@ -21,8 +21,8 @@ id;type;name;options;required
     10020040;select_col_30_30_30;Medikament Bezeichnung;;required
     10020080;select_col_30_30_30;Schema;;required
     10020085;select_col_30_30_30;Dosierung (nur Infliximab);5mg/kg|7,5mg/kg|10mg/kg|unbekannt;required
-    10020050;select_col_30_30_30_text;Einnahme-Start;1950|this_year|true|false|Y(M)|de;required
-    10020060;select_col_30_30_30_text;Einnahme-Stop;1950|this_year|true|false|Y(M)|de;
+    10020050;select_col_30_30_30_text;Einnahme-Start;;required
+    10020060;select_col_30_30_30_text;Einnahme-Stop;;
     10020070;select_col_30_30_30;Absetzungsgrund;Nebenwirkungen|Hat nicht gewirkt|Hat erst gewirkt, dann aber die Wirkung verloren|Mein eigener Wunsch|Es ging mir gut (Remission)|Operation|Schwangerschaft|Andere;
 
 

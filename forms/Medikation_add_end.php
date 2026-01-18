@@ -314,24 +314,98 @@
         sel.parentNode.style.whiteSpace = "nowrap";
         // Optional: Span beim Ändern aktualisieren
         sel.addEventListener("change", function() {
-            span.textContent = sel.options[sel.selectedIndex].text;
+            span.textContent = sel.tagName === 'SELECT' ? sel.options[sel.selectedIndex].text : sel.value;
         });
     });
 
     const el = document.getElementById("FS_900202200");
-                
-        if (el) {
-            // Padding und Margin für das Haupt-Element
-            el.style.padding   = 0;
-            el.style.marginTop = 0;
-            
-            // Alle enthaltenen DIVs
-            const childDivs = el.querySelectorAll("div");
-            childDivs.forEach(div => {
-                div.style.padding   = "2px";
-            });
-            
+
+    if (el) {
+        // Padding und Margin für das Haupt-Element
+        el.style.padding = 0;
+        el.style.marginTop = 0;
+
+        // Alle enthaltenen DIVs
+        const childDivs = el.querySelectorAll("div");
+        childDivs.forEach(div => {
+            div.style.padding = "2px";
+        });
+
+    }
+
+    // Datumseingabe
+
+    function isValidPartialDate(val) {
+        // YYYY
+        if (/^\d{4}$/.test(val)) {
+            return val >= "1000" && val <= "2999";
         }
 
-   
+        // YYYY-MM
+        if (/^\d{4}-\d{2}$/.test(val)) {
+            const [y, m] = val.split("-").map(Number);
+            return m >= 1 && m <= 12;
+        }
+
+        // YYYY-MM-DD
+        if (/^\d{4}-\d{2}-\d{2}$/.test(val)) {
+            const [y, m, d] = val.split("-").map(Number);
+            const maxDay = new Date(y, m, 0).getDate();
+            return m >= 1 && m <= 12 && d >= 1 && d <= maxDay;
+        }
+
+        return false;
+    }
+
+    const input_start = document.getElementById("FF_10020050");
+    input_start.placeholder = "Kein '-' eingeben, YYYY-MM-DD MM, DD optional";
+
+    input_start.addEventListener("input", function() {
+        let v = this.value.replace(/\D/g, "").slice(0, 8);
+
+        if (v.length > 4 && v.length <= 6) {
+            v = v.slice(0, 4) + "-" + v.slice(4);
+        } else if (v.length > 6) {
+            v = v.slice(0, 4) + "-" + v.slice(4, 6) + "-" + v.slice(6);
+        }
+
+        this.value = v;
+    });
+
+    input_start.addEventListener("blur", function() {
+        const v = this.value;
+        if (v === "") return;
+
+        if (!isValidPartialDate(v)) {
+            alert("Ungültiges Datum!\nErlaubt sind:\nYYYY\nYYYY-MM\nYYYY-MM-DD");
+            this.value = ""; // ✅ Feld leeren
+        }
+    });
+
+
+    const input_stop = document.getElementById("FF_10020060");
+    input_stop.placeholder = "Kein '-' eingeben, YYYY-MM-DD MM, DD optional";
+
+    input_stop.addEventListener("input", function() {
+        let v = this.value.replace(/\D/g, "").slice(0, 8);
+
+        if (v.length > 4 && v.length <= 6) {
+            v = v.slice(0, 4) + "-" + v.slice(4);
+        } else if (v.length > 6) {
+            v = v.slice(0, 4) + "-" + v.slice(4, 6) + "-" + v.slice(6);
+        }
+
+        this.value = v;
+    });
+
+    input_stop.addEventListener("blur", function() {
+        const v = this.value;
+        if (v === "") return;
+
+        if (!isValidPartialDate(v)) {
+            alert("Ungültiges Datum!\nErlaubt sind:\nYYYY\nYYYY-MM\nYYYY-MM-DD");
+            this.value = ""; // ✅ Feld leeren
+        }
+    });
+
 </script>
