@@ -119,6 +119,9 @@ if ($_SESSION['m_uid'] == 1) {
 if ( ($form_data_a[10020050] ?? "") )
     $form_data_a[10020050] = formatDateFlexible($form_data_a[10020050]);
 
+if ( ($form_data_a[10020060] ?? "") )
+    $form_data_a[10020060] = formatDateFlexible($form_data_a[10020060]);
+
 $temp_a = get_query_data($db, 'forms_10005', 'fcid= ' . $form_data_a[$_SESSION['param']['visite']] . ' AND fid=10005020');
 if (count($temp_a) > 0) {
     $visite_date = $temp_a[0]['fcont'];
