@@ -1,0 +1,34 @@
+id;type;name;options;required
+
+;start_hidden_row;;
+    90;text;pid;;
+    91;text;Praxis-ID;;
+    92;text;Cedur-Nr.;;
+    93;text;VID;;
+    94;text;Baseline;;
+    95;text;Diagnose;;
+    96;text;Geschlecht;;
+    98;text;copy_from;;
+    99;text;copy_during (not used);;
+    100;text;E;;
+    10020021;text;Typ;;
+    10005020;text;Visite;;
+;end_row;;
+
+900202200;start_fieldset;Medikation;
+    ;col_type_switch;col;
+    10020020;select_col_30_30_30;Medikamenten-Gruppe|Bitte wählen;Anti-Durchfall Mittel|Biologika|Budesonid|Cortison-Präparate|Immunsenker|Mesalazine|Schmerzmittel|andere Medikamente;required
+    10020040;select_col_30_30_30;Medikament Bezeichnung;;required
+    10020080;select_col_30_30_30;Schema;;required
+    10020085;select_col_30_30_30;Dosierung (nur Infliximab);5mg/kg|7,5mg/kg|10mg/kg|unbekannt;required
+    10020050;select_col_30_30_30_text;Einnahme-Start;1950|this_year|true|false|Y(M)|de;required
+    10020060;select_col_30_30_30_text;Einnahme-Stop;1950|this_year|true|false|Y(M)|de;
+    10020070;select_col_30_30_30;Absetzungsgrund;Nebenwirkungen|Hat nicht gewirkt|Hat erst gewirkt, dann aber die Wirkung verloren|Mein eigener Wunsch|Es ging mir gut (Remission)|Operation|Schwangerschaft|Andere;
+
+
+;stop_fieldset;;
+
+
+99927;start_fieldset;;
+10003057;idonly_100;;;
+;stop_fieldset;;

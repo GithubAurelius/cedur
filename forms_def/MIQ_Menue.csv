@@ -1,0 +1,26 @@
+id;type;name;
+;start_fieldset;Menü-Definition;
+99902000;text;Eltern;;required
+99902001;text;Menueintrag;;required
+99902002;text;Ebene;
+99902003;text;Reihenfolge;
+99902008;text;rights;
+
+;info;<hr>;
+99902012;text;WinboxID;;required
+99902013;text;Arbeitsmodus;
+99902015;text;Limit;
+99902009;text;Position;
+99902010;text;Form-Name;;
+99902020;text;Titel/ Überschrift;;
+99902011;text;Felder;
+
+
+99902004;text;Funktion;;required
+99902005;textarea_1br_100;Call;;required
+99902006;text;No-parse;
+99902007;text;href;
+
+
+
+;stop_fieldset;;

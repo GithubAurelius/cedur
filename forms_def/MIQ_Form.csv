@@ -1,0 +1,10 @@
+id;type;name;
+;start_fieldset;Module;;
+99901001;text;Modulnummer (fg);
+99901002;text;Modulname;
+99901003;text;WinboxID;
+;stop_fieldset;;
+
+;start_fieldset;Edit;
+991002;idonly_100;;;
+;stop_fieldset;;;

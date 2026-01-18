@@ -1,0 +1,337 @@
+<script src="<?php echo $_SESSION['WEBROOT'] . $_SESSION['PROJECT_PATH'] . 'forms/' ?>Medikation_defs.js?RAND=<?php echo random_bytes(5); ?>"></script>
+<script>
+    const this_marker = 'F_93|' + <?php echo $form_data_a[$_SESSION['param']['visite']] ?? "" ?>;
+    const not_include = <?php echo json_encode($not_include ?? ""); ?>;
+    const select1 = document.getElementById('FF_10020020'); // Wirkstoffgruppe
+    const select2 = document.getElementById('FF_10020040'); // Medikament
+    const select3 = document.getElementById('FF_10020080'); // Dosis/ Schema
+    const select4 = document.getElementById('FF_10020085'); // Dosierung
+
+    const savedMedication = <?php echo json_encode($form_data_a['10020040'] ?? ""); ?>;
+    const savedDose = <?php echo json_encode($form_data_a['10020080'] ?? ""); ?>;
+
+    function fillSelect(selectEl, values, selectedValue = null) {
+        selectEl.innerHTML = '<option value="">Bitte wählen</option>';
+        values.forEach(v => {
+            if (!v.includes(not_include)) { // Diagnose ist wichtig
+                const opt = document.createElement('option');
+                opt.value = v;
+                opt.textContent = v;
+                if (v === selectedValue) opt.selected = true;
+                selectEl.appendChild(opt);
+            }
+        });
+    }
+
+    function updateSelect2(savedMed = null, savedDoseVal = null) {
+        const group = select1.value;
+        const match = val_med_select2_a.find(entry => entry[0] === group);
+        const meds = match ? match[1].split('|') : [];
+
+        fillSelect(select2, meds, savedMed);
+        updateSelect3(savedDoseVal);
+    }
+
+    function updateSelect3(savedDoseVal = null) {
+        const med = select2.value.trim();
+        if (med.includes("fliximab")) {
+            select4.disabled = false;
+            select4.required = true;
+        } else {
+            select4.disabled = true;
+            select4.required = false;
+        }
+        const match = val_med_select3_a.find(entry => entry[0] === med);
+        const doses = match ? match[1].split('|') : [];
+        fillSelect(select3, doses, savedDoseVal);
+    }
+
+    // Events bei Benutzeränderung
+    select1.addEventListener('change', () => {
+        updateSelect2(null, null);
+    });
+
+    select2.addEventListener('change', () => {
+        updateSelect3(null);
+    });
+
+    // Initiales Füllen basierend auf bereits gesetztem Wirkstoffgruppe
+    updateSelect2(savedMedication, savedDose);
+
+
+    let param_a = {};
+    param_a['sqlstr'] = "F_<?php echo $_SESSION['param']['pid'] ?> = '<?php echo $form_data_a[$_SESSION['param']['pid']]; ?>'";
+    param_a['pid'] = "<?php echo $form_data_a[$_SESSION['param']['pid']] ?? "" ?>";
+    param_a['praxis_pid'] = "<?php echo $form_data_a[$_SESSION['param']['praxis_pid']] ?? "" ?>";
+    param_a['ext_fcid'] = "<?php echo $form_data_a[$_SESSION['param']['ext_fcid']] ?? "" ?>";
+    param_a['visite'] = "<?php echo $form_data_a[$_SESSION['param']['visite']] ?? "" ?>";
+    param_a['geschlecht'] = "<?php echo $form_data_a[$_SESSION['param']['geschlecht']] ?? "" ?>";
+    param_a['diagnosis'] = "<?php echo $form_data_a[$_SESSION['param']['diagnosis']] ?? "" ?>";
+    param_a['first_visit'] = "<?php echo $form_data_a[$_SESSION['param']['first_visit']] ?? "" ?>";
+    const param_str = JSON.stringify(param_a);
+
+    field_in_group_validation('10020060', ['@NOTEMPTY@'], ['10020070'], 'one'); // Absetzung
+    compare_dates('FF_10020050', 'FF_10020060', '<=');
+    main_form_submit_new_button.style.display = 'inline';
+    const submitButton = document.getElementById('main_form_submit_new_button');
+    if (submitButton) {
+        const submitButton = document.getElementById('main_form_submit_new_button');
+        submitButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('param_str').value = btoa(encodeURIComponent(param_str));
+            document.main_form.submit();
+        });
+    }
+
+    // get box and num
+    const parentWinbox = window.top.findParentWinboxDiv(parent.window);
+    if (parentWinbox) num = parentWinbox.id.split('-')[1];
+    // let this_inner_win_height = document.body.clientHeight;
+    let this_inner_win_height = parentWinbox.offsetHeight;
+    const observer = new ResizeObserver(entries => {
+        for (let entry of entries) {
+            this_inner_win_height = parseFloat(parentWinbox.style.height); // entry.contentRect.height;
+            // console.log("Neue Body-Höhe:", this_inner_win_height);
+        }
+    });
+    observer.observe(document.body); // Body beobachten
+
+    const base_url = "<?php echo MIQ_PATH ?>modules/listing_form_native/listing_prepare.php";
+    const sourceDiv = document.getElementById('medication_tabs');
+    const targetDiv = document.getElementById('idonly_10003057');
+    targetDiv.innerHTML = sourceDiv.innerHTML;
+    sourceDiv.remove();
+
+    const tab_a = {}
+    url_params = new URLSearchParams({
+        fg: "10020",
+        limit: 1000,
+        form: "Medikation",
+        work_mode: "EF-D2",
+        num: num,
+        form_name: 'Medikation',
+        fid_str: '93,10005020,10020021,10020050,10020020,10020040,10020080,10020060,10020085,10020070',
+        query_global_str: JSON.stringify([
+            ["90", "", param_a['pid']]
+        ]),
+        param_str: btoa(encodeURIComponent(param_str))
+    });
+
+    tab_key = 'tab1';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Medikation';
+    tab_a['tab1']['url_params'] = url_params.toString();
+
+    tab_key = 'tab2';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Biologika';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Biologika%'],
+        ["10020021", "", '!=KE']
+
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab3';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Immunsenker';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Immunsenker%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab4';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Mesalazin';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Mesalazin%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab5';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Budesonid';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Budesonid%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab6';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Cortison';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Cortison%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab7';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Diarrhoe';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Diarrhoe%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab8';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Schmerzmittel';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Schmerzmittel%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+    tab_key = 'tab9';
+    tab_a[tab_key] = {};
+    tab_a[tab_key]['iframe'] = '_Andere';
+    url_params.set('query_global_str', JSON.stringify([
+        ["90", "", param_a['pid']],
+        ["10020020", "", '%Andere%'],
+        ["10020021", "", '!=KE']
+    ]));
+    tab_a[tab_key]['url_params'] = url_params.toString();
+
+
+    // UPDATE forms_10020 SET fcont = 'KE' WHERE fid=10020021 AND fcid IN (SELECT fcid FROM `forms_10020` WHERE fid = 10020080 AND fcont = 'keine Einnahme');
+
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const medication_fieldset = document.getElementById('FS_900202200');
+    const tab_fieldset = document.getElementById('FS_99927');
+    if (tab_fieldset) {
+        // Legend innerhalb des Fieldsets auswählen
+        const legend = tab_fieldset.querySelector("legend");
+        if (legend) {
+            legend.remove(); // entfernt das Legend-Element
+        }
+    }
+
+    function set_tab_and_iframe_heigth(base_url, url_params, iframe2set, window_height, p_fieldset) {
+        // console.log(this_inner_win_height, height2set, fieldset_height);
+        patient_window_height_plus_header = p_fieldset.offsetHeight + 290;
+        tab_height = window_height - patient_window_height_plus_header;
+        tab_fieldset.style.height = tab_height;
+        document.getElementById(iframe2set).src = `${base_url}?${url_params}`;
+        document.getElementById(iframe2set).style.height = tab_height;
+        // console.log(window_height, patient_window_height_plus_header,tab_height);
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const selectedTab = event.target.dataset.tab;
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            set_tab_and_iframe_heigth(base_url, tab_a[selectedTab]['url_params'], tab_a[selectedTab]['iframe'], this_inner_win_height, medication_fieldset)
+            // Optional: Logik zum Anzeigen des richtigen Tab-Inhalts
+            // const tabContent = document.querySelector(`#tab-content-${selectedTab}`);
+            // if (tabContent) {
+            //   // Verstecke alle Tab-Inhalte und zeige nur den gewünschten an.
+            // }
+        });
+    });
+
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    setTimeout(() => { // ausrichten der Fenster abwarten
+        set_tab_and_iframe_heigth(base_url, tab_a['tab1']['url_params'], tab_a['tab1']['iframe'], this_inner_win_height, medication_fieldset)
+    }, 100);
+
+
+
+
+
+    const fieldIds = ['FF_10020020', 'FF_10020040', 'FF_10020080', 'FF_10020050', 'FF_10020060', 'FF_10020070'];
+    const submitBtn = document.getElementById('main_form_submit_button');
+    const makeBlink = () => {
+        if (submitBtn && !submitBtn.classList.contains('blink')) {
+            submitBtn.classList.add('blink');
+            // beepInterval = setInterval(playBeep, 1000);
+        }
+    };
+    fieldIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('change', makeBlink);
+        }
+    });
+
+
+    eL_check_numbers();
+    eL_check_required_fields();
+
+    const background_field_save = 0;
+
+
+    const feldIds = [
+        10020020,
+        10020040,
+        10020050,
+        10020060,
+        10020070,
+        10020080,
+        10020085
+    ];
+
+    feldIds.forEach(id => {
+        const sel = document.getElementById("FF_" + id);
+        if (!sel) return; // Element existiert nicht
+
+        // Span erstellen (falls noch nicht vorhanden)
+        let span = document.getElementById("isp_FF_" + id);
+        if (!span) {
+            span = document.createElement("span");
+            span.id = "isp_FF_" + id;
+            span.style.marginRight = "10px";
+            span.style.display = "inline-block";
+            sel.parentNode.insertBefore(span, sel);
+        }
+        // PHP-Wert in Span eintragen
+        span.textContent = <?= json_encode($form_data_a) ?>[id] || "";
+        // Select inline-block setzen, Parent nowrap
+        sel.style.display = "inline-block";
+        sel.parentNode.style.whiteSpace = "nowrap";
+        // Optional: Span beim Ändern aktualisieren
+        sel.addEventListener("change", function() {
+            span.textContent = sel.options[sel.selectedIndex].text;
+        });
+    });
+
+    const el = document.getElementById("FS_900202200");
+                
+        if (el) {
+            // Padding und Margin für das Haupt-Element
+            el.style.padding   = 0;
+            el.style.marginTop = 0;
+            
+            // Alle enthaltenen DIVs
+            const childDivs = el.querySelectorAll("div");
+            childDivs.forEach(div => {
+                div.style.padding   = "2px";
+            });
+            
+        }
+
+   
+</script>

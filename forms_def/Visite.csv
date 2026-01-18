@@ -1,0 +1,19 @@
+id;type;name;options;required
+;start_hidden_row;;
+90;text;pid;;
+91;text;Praxis-ID;;
+92;text;Cedur-Nr.;;
+93;text;Visite;;
+94;text;Baseline;;
+95;text;Diagnose;;
+96;text;Geschlecht;;
+100;text;E;;
+;end_row;;
+
+;start_fieldset;<img height='16px' src='../forms/images/dataentry.svg'> Visite / Dokumentationen <?=$praxis_id?>;
+10005020;date;Datum der Visite;;required
+;stop_fieldset;;
+
+
+
+;iframe;<iframe id='<?php echo $fcid?>_visite_work' style='width:100%@semikolon@border:0@semikolon@'></iframe>;;

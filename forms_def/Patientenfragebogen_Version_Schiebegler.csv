@@ -1,0 +1,392 @@
+id;type;name;options;required
+
+;start_hidden_row;;
+90;text;pid;;
+91;text;Praxis-ID;;
+92;text;Cedur-Nr.;;
+93;text;VID;;
+94;text;Baseline;;
+95;text;Diagnose;;
+96;text;geschlecht;;
+100;text;Error;;
+109001;text;Mayo;;
+109002;text;Mayo_p;;
+109003;text;SES;;
+109004;text;CDAI;;
+109005;text;SIDBQ;;
+109006;text;PROMIS;;
+109007;text;FACIT;;
+109008;text;HBI;;
+10005020;text;Visite;;
+
+;end_row;;
+993344;start_fieldset;<img height='14px' src='../forms/images/dataentry.svg'> Anamnese;
+    102600;number;[CEDUR3.Allgemein.CDAI_Size]<span id='C_102600'></span>Wie groß sind Sie?|in cm;110|240|1;required
+    102700;number;[CEDUR3.Allgemein.CDAI006]<span id='C_102700'></span>Wie viel wiegen Sie?|in kg;30|300|1;required
+    102705;text_span;@10@➥ Ihr BMI|Automatikfeld;;
+    102800;radio_cb;[CEDUR3.Allgemein.Raucher]Rauchen Sie?;Ja|Nein;required
+    ;start_block;Ja;102800;
+        ;info_100;[CEDUR3.Allgemein.rauchart]@10@➥ Bitte machen Sie Angaben zu den genutzten Tabakprodukten:;
+        ;start_row;;
+            103400;text;[CEDUR3.Allgemein.menge_zigarette]@30@Wie viele Zigaretten pro Tag?|in Stck.;0|150|1
+            103000;text;[CEDUR3.Allgemein.menge_ezig]@30@Wie viele E-Zigaretten pro Tag?|in Stck.;0|150|1
+            103300;text;[CEDUR3.Allgemein.menge_zigar]@30@Wie viele Zigarillos / Zigarren pro Tag?|in Stck.;0|150|1
+            103100;text;[CEDUR3.Allgemein.mengepfeif]@30@Wie viele Pfeifen pro Tag?|in Stck.;0|150|1
+            103200;text;[CEDUR3.Allgemein.menge_tabaker]@30@Wie viele Tabakerhitzer pro Tag?|in Stck.;0|150|1
+        ;end_row;;
+    ;stop_block;;;
+    ;start_block;Nein;102800;
+        ;start_row;;
+        102805;radio_cb;Waren Sie früher Raucher?;Ja|Nein;required
+            ;start_block;Ja;102805;
+                ;start_row;;
+                102806;select;Wie intensiv haben Sie geraucht?;gelegentlich|moderat|viel|sehr viel;required
+                 ;end_row;;
+            ;stop_block;;;  
+         ;end_row;;  
+    ;stop_block;;;
+    102815;select_mt;Bevorzugen Sie eine spezielle Ernährungsform?;Nein|Allergenarme Kost/ Exklusionsdiät (z.B. Nussallergie o.ä.)|Ballaststoffarm|Ballaststoffreich|Exklusive Enterale Ernährung (mit Trinknahrung)|FODMAP ( Blähungen)|Fruktosefrei/-arm|Gluten-frei /-arm|Zuckerverzicht|Laktosefrei/-arm|Proteinreich|Vegan|Vegetarisch;
+    106000;select;[CEDUR3.Allgemein.taetigkeit]Wie sind Sie zur Zeit tätig?;Angestellt tätig|Selbständig tätig|Student / Schüler / in Ausbildung|Elternzeit|Arbeitssuchend / Arbeitslos|Nicht berufstätig|Rentner (aufgrund CED)|Rentner (aufgrund anderer Erkrankungen)|Rentner (reguläre Altersrente);required
+    ;start_block;Angestellt tätig Selbständig tätig;106000;
+            ;start_row;;
+                106500;text;[CEDUR3.Allgemein.Erwerb]@10@➥ Welche Erwerbstätigkeit üben Sie derzeit aus (Beruf)?;
+                106600;select;[CEDUR3.Allgemein.Erwer_h]@30@Umfang der aktuellen Tätigkeit in Stunden?;Vollzeit (>30h)|Teilzeit I (21h-30h)|Teilzeit II (bis 20h)
+            ;end_row;;    
+    ;stop_block;;
+    ;start_block;Angestellt tätig;106000;
+            ;start_row;;
+                106200;radio_cb;[CEDUR3.Allgemein.CDAI002]@30@Waren Sie seit der letzten Visite aufgrund Ihrer CED krankgeschrieben?;Ja|Nein
+                ;start_block;Ja;106200;
+                    ;start_row;;
+                        106300;number;[CEDUR3.Allgemein.Fehltage]@30@➥ Wie viele Tage?|Angabe in Tagen;1|180|1
+                    ;end_row;;
+                ;stop_block;;  
+            ;end_row;;
+    ;stop_block;; 
+    ;start_block;Berentet aufgrund CED;106000;
+            ;start_row;;
+                106400;number;[CEDUR3.Allgemein.Rentezeit]@10@Seit wann sind Sie wegen Ihrer CED berentet?|Jahr (vierstellig);1950|this_year|1
+            ;end_row;;
+    ;stop_block;;
+    ;start_block;Berentet aufgrund anderer Erkrankungen;106000;
+            ;start_row;;
+                106100;text;[CEDUR3.Allgemein.berentedErkrankung]@10@Aufgrund welcher Erkrankung sind sie berentet?;
+            ;end_row;;
+    ;stop_block;;
+    106700;select;[CEDUR3.Allgemein.Erwerb_Schul]Welchen Schulabschluß haben Sie?;Keinen Schulabschluß|Hauptschulabschluß|Mittlere Reife|Abitur/Fachabitur;required
+    106701;select;Welches ist Ihr höchster Bildungsabschluß?;kein Abschluß|Abgeschlossene Berufsausbildung|Bachelor|Master|Promotion|Habilitation;required
+    105000;radio_cb;[CEDUR3.Allgemein.Verwandte]Sind Verwandte von Ihnen an einer CED erkrankt?;Ja|Nein;required
+    ;start_block;Ja;105000;
+            ;start_row;;
+                105100;radio_cb;[CEDUR3.Allgemein.Verwandte_MutterVater]@10@➥ Mutter / Vater;Ja|Nein
+                105200;radio_cb;[CEDUR3.Allgemein.Verwandte_BruderSchwester]@30@Bruder / Schwester;Ja|Nein
+                    ;start_block;Ja;105200;
+                        ;start_row;;
+                            105300;radio_cb;[CEDUR3.Allgemein.zwilling]@30@➥ Zwilling;Ja|Nein
+                        ;end_row;; 
+                    ;stop_block;;
+                105400;radio_cb;[CEDUR3.Allgemein.Verwandte_SohnTochter]@30@Sohn / Tochter;Ja|Nein
+                105500;radio_cb;[CEDUR3.Allgemein.Verwandte_GrossvaterGrossmutter]@30@Großvater / Großmutter;Ja|Nein
+                105600;radio_cb;[CEDUR3.Allgemein.Verwandte_TanteOnkel]@30@Tante / Onkel;Ja|Nein
+                105700;radio_cb;[CEDUR3.Allgemein.Verwandte_NeffeNichte]@30@Neffe / Nichte;Ja|Nein
+                105800;radio_cb;[CEDUR3.Allgemein.Verwandte_CousinCousine]@30@Cousin / Cousine;Ja|Nein
+                105900;radio_cb;[CEDUR3.Allgemein.Verwandte_Andere]@30@Andere;Ja|Nein
+            ;end_row;; 
+    ;stop_block;;
+;stop_fieldset;;
+
+9507;logicblock_100;weiblich;
+    ;start_fieldset;<img height='14px' src='../forms/images/pregnacy.svg'> Schwangerschaft;
+    108500;radio_cb;[CEDUR3.Allgemein.Schwanger]Sind Sie schwanger?;Ja|Nein;required    
+        ;start_block;Nein;108500;
+            ;start_row;;
+                109100;radio_cb;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl]Waren Sie schon einmal schwanger?;Ja|Nein;required
+                    ;start_block;Ja;109100;
+                        ;start_row;;
+                                109200;select;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Zahl]@10@➥ Anzahl der Schwangerschaften?|Angabe 1 bis ≥7;1|2|3|4|5|6|≥7
+                                109300;radio_cb;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt]@30@War die letzte Schwangerschaft innerhalb der letzten 6 Monate?;Ja|Nein
+                                ;start_block;Ja;109300;
+                                    ;start_row;;             
+                                        109400;radio_cb;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Komplikationen]@30@➥ Gab es Komplikationen während Ihrer letzten Schwangerschaft?;Ja|Nein
+                                        110100;radio_cb;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Status]@30@Ist Ihr Kind gesund?;Ja|Nein
+                                        109500;number;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_SSW]@30@Schwangerschaftswoche bei Geburt?;22|43|1
+                                        109700;select;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Geschlecht]@30@Geschlecht des Kindes?;männlich|weiblich       
+                                        109600;select;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Verlauf]@30@Wie verlief die Geburt?;spontan|geplanter Kaiserschnitt|spontaner Kaiserschnitt|vaginal-operative Entbindung (Verwendung von Saugglocke oder Geburtszange)
+                                        109800;number;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Gewicht]@30@Geburtsgewicht?|in g;400|10000|1
+                                        109900;number;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Größe]@30@Körpergröße bei Geburt?|in cm;20|700|1
+                                        110000;number;[CEDUR3.Allgemein.Schwanger_Schwangerschaftsanzahl_Lebendgeburt_Kopf]@30@Kopfumfang bei Geburt?|in cm;20|100|1 
+                                    ;end_row;;           
+                                ;stop_block;;
+                        ;end_row;;        
+                    ;stop_block;;
+            ;end_row;;   
+        ;stop_block;;
+        ;start_block;Ja;108500;
+            ;start_row;;
+                108600;number;[CEDUR3.Allgemein.Schwanger_Woche]@10@➥ In welcher Woche sind Sie schwanger?|Angabe Woche 4 bis 45;4|45|1
+                108700;date_ab;[CEDUR3.Allgemein.Schwanger_Geburtstermin]@30@Wann ist der errechnete Geburtstermin?;this_year|next_year|false|true|Y(MD)|de
+                108800;radio_cb;[CEDUR3.Allgemein.Schwanger_CED Behandlung]@30@Wurde wegen der Schwangerschaft die CED Behandlung verändert?;Ja|Nein
+                108900;radio_cb;[CEDUR3.Allgemein.Schwanger_vorherige Schwangerschaften]@30@Waren Sie vor dieser aktuellen Schwangerschaft schon einmal schwanger?;Ja|Nein
+                ;start_block;Ja;108900;
+                    ;start_row;;
+                        109000;select;[CEDUR3.Allgemein.Schwanger_vorherige Schwangerschafte_Anzahl]@30@➥ Anzahl der Schwangerschaften (ohne die aktuelle)?|Angabe 1 bis ≥7;1|2|3|4|5|6|≥7
+                    ;end_row;; 
+                ;stop_block;;
+            ;end_row;; 
+        ;stop_block;;   
+    ;stop_fieldset;;
+;stop_block;; 
+
+;start_fieldset;<img height='14px' src='../forms/images/diagnosis.svg'> Diagnose und Symptome;;
+    102200;date_tc;[CEDUR3.Allgemein.DatumErstdiagnose]Datum der Erstdiagnose|in Jahr (vierstellig);1960|this_year|true|false|Y(M)|de;required
+    102300;date_tc;[CEDUR3.Allgemein.DatumErsteSymptome]Erste Symptome Ihrer Erkrankung?|in Jahr (vierstellig);1960|this_year|true|false|Y(M)|de;required      
+    102400;radio_cb;[CEDUR3.Allgemein.CDAI003]Waren Sie seit der letzten Visite im Krankenhaus?;Ja|Nein;required
+    ;start_block;Ja;102400;
+        ;start_row;;
+            102500;number;[CEDUR3.Allgemein.CDAI003Tage]@10@➥ Wieviele Tage?;1|300|1
+        ;end_row;; 
+    ;stop_block;;
+    103500;number;[CEDUR3.Allgemein.CDAI009]<span id='C_103500'></span>Wie viele flüssige / breiige Stuhlgänge (Bei Stoma: Beutelentleerungen) hatten Sie in der vergangenen Woche durchschnittlich pro Tag?;0|50|0.1;required
+    103505;radio_cb;<span id='C_103505'></span>[CEDUR3.lebensqualitaet.CACP_8]Nehmen Sie regelmäßig Durchfallmedikamente?;Ja|Nein;required
+    103600;select;[CEDUR3.Allgemein.CDAI014]<span id='C_103600'></span>Blutbeimengungen beim Stuhl;kein Blut|Blut bei weniger als der Hälfte der Stuhlgänge|deutliche Blutbeimengung|Blut auch ohne Stuhl;required
+    103900;select;[CEDUR3.Allgemein.CDAI010]<span id='C_103900'></span>Bauchschmerzen über die letzten 7 Tage;keine|leichte|mäßige|schwere;required
+    104000;select;[CEDUR3.Allgemein.CDAI011]<span id='C_104000'></span>Ihr Allgemeinbefinden über die letzten 7 Tage;gut|beeinträchtigt|schlecht|sehr schlecht|unerträglich;required
+    104500;radio_cb;[CEDUR3.Allgemein.CDAI012_hatten]Hatten Sie in der Vergangenheit Fisteln? (Wenn Sie nicht wissen, was das ist, haben bzw. hatten Sie auch keine);Ja|Nein;required
+    104200;radio_cb;[CEDUR3.Allgemein.CDAI012]<span id='C_104200'></span>Haben Sie aktuell Fisteln?;Ja|Nein;required
+    111200;radio_cb;[CEDUR3.Allgemein.weitereErkrankungen]Haben Sie noch weitere Erkrankungen?;Ja|Nein;required
+    ;start_block;Ja;111200;  
+        ;start_row;;;
+            111301;select_mt;@10@➥Bitte wählen Sie die Erkrankungen;Akne inversa|Asthma bronchiale|Bauchspeicheldrüsenkrebs|Blasenentzündung|Bluthochdruck|Brustkrebs|Darmkrebs|Diabetes mellitus|Depression|Eierstock-Krebs|Fatigue Syndrom (ständige Müdigkeit/ Abgeschlagenheit)|Fettstoffwechselstörung|Gallensteine|Grauer Star|Grüner Star|Gürtelrose (Herpes zoster)|Hautkrebs (schwarzer und weißer Hautkrebs)|Haarausfall|Hepatitis (A/ B/ C/ D oder E)|Herzinfarkt|Hodenkrebs|HIV|Koronare Herzkrankheit|Kurzdarmsyndrom|Leberzirrhose|Leukämie|Lungenkrebs|Lymphdrüsenkrebs|Migräne|Multiple Sklerose (MS)|Nierenerkrankung|Nierensteine|Osteoporose|PBC (Primär biliäre Zirrhose / Cholangitis)|Prostatakrebs|PSC (primär)|Rheumatoide Arthritis|Schilddrüsenüberfunktion|Schilddrüsenunterfunktion|Schlafstörungen|Schuppenflechte|Thrombose;
+            115500;textarea_1;[CEDUR3.Allgemein.weitereErkrankungen_43]@30@ Andere Erkrankungen falls nicht in der Liste:;3;
+        ;end_row;; 
+    ;stop_block;; 
+;stop_fieldset;;;
+
+99991005;start_fieldset;<img height='14px' src='../forms/images/oparation.svg'> Operationen;;
+      
+        106900;select;[CEDUR3.Allgemein.DarmOP]Sind Sie schon einmal wegen Ihrer CED am Darm operiert worden?;Nein|1 Mal|2 Mal|3 Mal|4 Mal|5 Mal|>5 Mal;required
+   
+        ;start_block;1 Mal 2 Mal 3 Mal 4 Mal 5 Mal >5 Mal;106900;
+            ;info_100;@10@➥ Die Angabe zur Art der Operation ist optional. Wenn Sie wissen,<br>@blank@@blank@@blank@@blank@@blank@um welche Art es sich handelte, können Sie dies ergänzen.;;
+            ;start_row;;
+                ;info_100;<b>1. Operation:</b>;
+                107100;date_tc_1;[CEDUR3.Allgemein.DarmOP_1_Datum];1950|this_year|true|false|Y(M)|de
+                107200;select_1;[CEDUR3.Allgemein.DarmOP_1Art]|Art der 1. OP;Colektomie|Dünndarm-Resektion|Fistel- / Abszess-OP|Ileocoecal-Resektion|Colon-Teil-Resektion|Pouchanlage|Dauerhaftes Stoma|Vorübergehendes Stoma|protektives Ileostoma
+            ;end_row;;
+        ;stop_block;; 
+        ;start_block;2 Mal 3 Mal 4 Mal 5 Mal >5 Mal;106900;  
+            ;start_row;;
+                ;info_100;<b>2. Operation:</b>;
+                107400;date_tc_1;[CEDUR3.Allgemein.DarmOP_2_Datum];1950|this_year|true|false|Y(M)|de
+                107500;select_1;[CEDUR3.Allgemein.DarmOP_2Art]|Art der 2. OP;Colektomie|Dünndarm-Resektion|Fistel- / Abszess-OP|Ileocoecal-Resektion|Colon-Teil-Resektion|Pouchanlage|Dauerhaftes Stoma|Vorübergehendes Stoma|protektives Ileostoma
+            ;end_row;;
+        ;stop_block;;
+        ;start_block;3 Mal 4 Mal 5 Mal >5 Mal;106900;  
+            ;start_row;;
+                ;info_100;<b>3. Operation:</b>;
+                107700;date_tc_1;[CEDUR3.Allgemein.DarmOP_3_Datum];1950|this_year|true|false|Y(M)|de
+                107800;select_1;[CEDUR3.Allgemein.DarmOP_3Art]|Art der 3. OP;Colektomie|Dünndarm-Resektion|Fistel- / Abszess-OP|Ileocoecal-Resektion|Colon-Teil-Resektion|Pouchanlage|Dauerhaftes Stoma|Vorübergehendes Stoma|protektives Ileostoma
+            ;end_row;;  
+        ;stop_block;;
+        ;start_block;4 Mal 5 Mal >5 Mal;106900; 
+            ;start_row;;
+                ;info_100;<b>4. Operation:</b>;
+                108000;date_tc_1;[CEDUR3.Allgemein.DarmOP_4_Datum];1950|this_year|true|false|Y(M)|de
+                108100;select_1;[CEDUR3.Allgemein.DarmOP_4Art]|Art der 4. OP;Colektomie|Dünndarm-Resektion|Fistel- / Abszess-OP|Ileocoecal-Resektion|Colon-Teil-Resektion|Pouchanlage|Dauerhaftes Stoma|Vorübergehendes Stoma|protektives Ileostoma
+            ;end_row;; 
+        ;stop_block;; 
+        ;start_block;5 Mal >5 Mal;106900; 
+            ;start_row;; 
+                ;info_100;<b>5. Operation:</b>;
+                108300;date_tc_1;[CEDUR3.Allgemein.DarmOP_5_Datum];1950|this_year|true|false|Y(M)|de
+                108400;select_1;[CEDUR3.Allgemein.DarmOP-5Art]|Art der 5. OP;Colektomie|Dünndarm-Resektion|Fistel- / Abszess-OP|Ileocoecal-Resektion|Colon-Teil-Resektion|Pouchanlage|Dauerhaftes Stoma|Vorübergehendes Stoma|protektives Ileostoma
+            ;end_row;;  
+        ;stop_block;;
+    ;stop_block;;
+;stop_fieldset;;  
+
+99998001;start_fieldset;@ONETIME@<img height='14px' src='../forms/images/medikation.svg'> Vormedikation - frühere CED-Medikamente;
+99999001;info_100;@ONETIME@Geben Sie hier bitte nur die Medikamente an, die Sie <strong>wegen Ihrer CED in der VERGANGENHEIT</strong> eingenommen und abgesetzt haben, also <strong>AKTUELL NICHT</strong> mehr einnehmen.<br><font style='font-size:11px@semikolon@color:gray'>Drücken Sie auf <label style='vertical-align:bottom'><svg xmlns='http://www.w3.org/2000/svg'  height='20px' width='20px' viewBox='0 -960 960 960' fill='#35a800ff'><path d='M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z'/></svg></label> (Hinzufügen) wenn Sie ein Medikament erfasst haben, um ein weiteres zu ergänzen oder die Eingabe zu beenden</font>;
+;iframe;<iframe id='vormedikation' title='vormedikation' style='width:100%@semikolon@border:0@semikolon@'></iframe>;;
+;stop_fieldset;;
+
+99998002;start_fieldset;<img height='14px' src='../forms/images/medikation.svg'> Aktuelle CED-Medikation/ Verordnung;
+99999002;info_100;@ONETIME@Bitte geben Sie die Medikamente ein, die Sie <strong>wegen Ihrer CED aktuell oder seit letzter Visite</strong> einnehmen.<br><font style='font-size:11px@semikolon@color:gray'>Drücken Sie auf <label style='vertical-align:bottom'><svg xmlns='http://www.w3.org/2000/svg'  height='20px' width='20px' viewBox='0 -960 960 960' fill='#35a800ff'><path d='M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z'/></svg></label> (Hinzufügen) wenn Sie ein Medikament erfasst haben, um ein weiteres zu ergänzen oder die Eingabe zu beenden</font>;;
+;iframe;<iframe id='medikation' title='medikation' style='width:100%@semikolon@border:0@semikolon@'></iframe>;;
+;stop_fieldset;;
+
+99991008;start_fieldset;<img height='14px' src='../forms/images/untersuchung.svg'> Ärztliche Untersuchung;
+
+    9501;logicblock_100;Morbus Crohn;;
+        ;info_100;[CEDUR3.Allgemein.Montreal_Lokalisation_Crohn]Benennen Sie bitte die Lokalisation (MC oder CI);
+        ;info_100;<hr style='margin-top:-2px@semikolon@margin-bottom:-2px'>;
+                101902;checkbox_base_60_indent;Nur terminales Ileum;
+                101904;checkbox_base_60_indent;Nur Colon;
+                101906;checkbox_base_60_indent;Ileo-Colon;
+                101908;checkbox_base_60_indent;Oberer GI-Trakt (Öspohagus u./o. Magen u./o. Duodenum);
+                101910;checkbox_base_60_indent;Dünndarmbefall (Jejunum / Ileum (außer term. Ileum);
+        ;start_row;;;
+            116100;radio_cb;[CEDUR3.Allgemein.SES_CD]<span id='C_116100'></span>SES-CD Score erhoben (MC oder CI)?;Ja|Nein;required
+        ;end_row;;
+        ;start_block_2;Ja;116100;
+            ;info_30;;
+            ;start_col_wrap;;
+                ;info_wrapped;<small style='padding:3px'><br>Ulzeration</small>;;
+                ;info_wrapped;<small style='padding:3px'>Ausdehnung<br>Ulzeration</small>;;
+                ;info_wrapped;<small style='padding:3px'>Entzündete<br>Oberfläche</small>;;
+                ;info_wrapped;<small style='padding:3px'><br>Stenose</small>;;
+            ;stop_col_wrap;;
+            ;info_30;@30@Ileum;
+            ;start_col_wrap;;
+                116202;dbl_select_wrapped;;keine|aphtoid < 0,5cm|0,5cm - 2cm|> 2cm
+                116204;dbl_select_wrapped;;keine|< 10%|10 - 30%|> 30%
+                116206;dbl_select_wrapped;;keine|< 50%|50 - 75%|> 75%
+                116208;dbl_select_wrapped;[CEDUR3.Allgemein.SES_CD_1];keine|singulär, passierbar|multipel, passierbar|nicht passierbar
+            ;stop_col_wrap;;
+            ;info_30;@30@Colon rechts;
+            ;start_col_wrap;;
+                116302;dbl_select_wrapped;;keine|aphtoid < 0,5cm|0,5cm - 2cm|> 2cm
+                116304;dbl_select_wrapped;;keine|< 10%|10 - 30%|> 30%
+                116306;dbl_select_wrapped;;keine|< 50%|50 - 75%|> 75%
+                116308;dbl_select_wrapped;[CEDUR3.Allgemein.SES_CD_2];keine|singulär, passierbar|multipel, passierbar|nicht passierbar
+            ;stop_col_wrap;;
+            ;info_30;@30@Colon transversum;
+            ;start_col_wrap;;
+                116402;dbl_select_wrapped;;keine|aphtoid < 0,5cm|0,5cm - 2cm|> 2cm
+                116404;dbl_select_wrapped;;keine|< 10%|10 - 30%|> 30%
+                116406;dbl_select_wrapped;;keine|< 50%|50 - 75%|> 75%
+                116408;dbl_select_wrapped;[CEDUR3.Allgemein.SES_CD_3];keine|singulär, passierbar|multipel, passierbar|nicht passierbar
+            ;stop_col_wrap;;
+            ;info_30;@30@Colon links;
+            ;start_col_wrap;;
+                116502;dbl_select_wrapped;;keine|aphtoid < 0,5cm|0,5cm - 2cm|> 2cm
+                116504;dbl_select_wrapped;;keine|< 10%|10 - 30%|> 30%
+                116506;dbl_select_wrapped;;keine|< 50%|50 - 75%|> 75%
+                116508;dbl_select_wrapped;[CEDUR3.Allgemein.SES_CD_4];keine|singulär, passierbar|multipel, passierbar|nicht passierbar
+            ;stop_col_wrap;;
+            ;info_30;@30@Rektum;
+            ;start_col_wrap;;
+                116602;dbl_select_wrapped;;keine|aphtoid < 0,5cm|0,5cm - 2cm|> 2cm
+                116604;dbl_select_wrapped;;keine|< 10%|10 - 30%|> 30%
+                116606;dbl_select_wrapped;;keine|< 50%|50 - 75%|> 75%
+                116608;dbl_select_wrapped;[CEDUR3.Allgemein.SES_CD_5];keine|singulär, passierbar|multipel, passierbar|nicht passierbar
+            ;stop_col_wrap;;
+            ;info_100; ;
+        ;stop_block;;    
+    ;stop_block;;
+
+    9503;logicblock_100;Colitis ulcerosa Colitis indeterminata;;
+        ;start_row;;
+            102000;select;[CEDUR3.Allgemein.Montreal_Lokalisation_CU]Benennen Sie bitte die Lokalisation (Colitis ulcerosa);Proktitis|Linksseiten Colitis|Pancolitis;required
+       ;end_row;;
+       ;start_row;;
+            103700;select;[CEDUR3.Allgemein.mayo_pga]<span id='C_103700'></span>Globale Beurteilung des Krankheitszustandes;normal|mild|moderate Erkrankung|schwere Erkrankung;required
+       ;end_row;;
+       9504;logicblock_100;Colitis ulcerosa;;
+            ;start_row;;
+                103800;select;[CEDUR3.Allgemein.mayo_endo]<span id='C_103800'></span>Endoskopischer Befund Mayo Score;keine Befund vorhanden|normaler Befund oder inaktive Erkrankung|milde Colitis (Erythem, leicht spröde Schleimhaut)|moderate Colitis (deutliches Erythem, Erosionen, Gefässmuster verschwunden)|schwere Colitis (Ulzerationen, spontane Blutungen);required
+                103801;select;[CEDUR3.Allgemein.mayo_endo]Histologische Untersuchung mit Dysplasien;Keine|Leichte|Mittlere|Schwere|Colitis assoziiertes Colon-Carcinom|Adenom assoziiertes Colon-Carcinom;
+            ;end_row;; 
+        ;stop_block;;
+    ;stop_block;;
+    
+    
+    ;start_block;Ja;104200;
+                ;start_row;;
+                    ;info_100;Angaben zu aktuellen Fisteln des Patienten;
+                    104300;radio_cb;[CEDUR3.Allgemein.fistelact]@30@<span id='C_104300'></span>Perianale Crohn Erkrankung (z.B. Fisteln, Fissuren, Abszesse);Ja|Nein
+                    104400;radio_cb;[CEDUR3.Allgemein.fist_and]@30@<span id='C_104400'></span>Andere Fisteln (z.B. rektovesikal, Bauchdeckenfistel etc.);Ja|Nein
+                ;end_row;;
+    ;stop_block;;
+    ;info_100;Weitere Untersuchungsbefunde;
+    104800;radio_cb;[CEDUR3.Allgemein.Stenosen]@30@Hat oder hatte der Patient Stenosen?;Ja|Nein;required
+    ;start_block;Ja;104800;
+        ;start_row;;
+            ;info_30;[CEDUR3.Allgemein.stenose_ort]@30@ ➥ Lokalisation der Stenose;
+            104900;checkbox_base_30;[CEDUR3.Allgemein.stenose_ort]Dünndarmstenose;
+            104910;checkbox_base_30;[CEDUR3.Allgemein.stenose_ort]Dickdarmstenose;
+        ;end_row;;     
+    ;stop_block;;
+    115600;radio_cb;[CEDUR3.Allgemein.eim_auge]@30@<span id='C_115600'></span>Augenbeteiligung (Iritis, Uveitis);Ja|Nein;required
+    115700;radio_cb;[CEDUR3.Allgemein.eim_temp]@30@<span id='C_115700'></span>Körpertemperatur über 37,8°C;Ja|Nein;required
+    115800;radio_cb;[CEDUR3.Allgemein.eim_haut]@30@<span id='C_115800'></span>Erythema nodosum, Pyoderma gangraenosum, Stomatitis aphtosa;Ja|Nein;required
+    115900;radio_cb;[CEDUR3.Allgemein.eim_gelenk]@30@<span id='C_115900'></span>Gelenkschmerzen / Arthritis;Ja|Nein;required
+    116000;radio_cb;[CEDUR3.Allgemein.cdai_resist]@30@<span id='C_116000'></span>Resistenz im Abdomen;Ja|Nein|Fraglich;required
+    ;info_0;;
+    ;info_0;<div id='choose_all_untersuchung' class='aref_button' style='text-align:center'><button type='button' class='aref_button' style='width:200px'>alle Befunde negativ</button></div>;
+;stop_fieldset;;;
+
+99991009;start_fieldset;<img height='14px' src='../forms/images/labor.svg'> Laborergebnisse;
+    110900;radio_cb;[CEDUR3.Allgemein.labor_crpgross]`CRP>5`CRP größer 5mg/l;Ja|Nein
+        ;start_block;Ja;110900;
+            ;start_row;; 
+                111000;number;[CEDUR3.Allgemein.mg/dl]➥ CRP|in mg/l;6|1000|0.01
+            ;end_row;;
+        ;stop_block;;
+    110600;pair_numb_sel_1;[CEDUR3.Allgemein.labor_hb]Hämoglobin;2|25|0.01
+    110602;pair_text_sel_2;[CEDUR3.Allgemein.labor_hb_einheit]`Einh.`|Bitte Einheit angeben;g/dl|mmol/l
+    110200;number;[CEDUR3.Allgemein.labor_hct]<span id='C_110200'></span>Hämatokrit|in %;15|60|1;required
+    110511;number;Thrombozyten (optional)|in /nl;0|10000|0.01    
+    110700;number;[CEDUR3.Allgemein.labor_ferritin]Ferritin|in ng/ml;0|10000|0.01
+    111100;number;[CEDUR3.Allgemein.labor_albumin]`Albumin `Albumin;6|1000|0.01
+    110400;radio_cb;[CEDUR3.Allgemein.labor_calpr]Calprotectin größer 50mg/kg;Ja|Nein 
+          ;start_block;Ja;110400;
+              ;start_row;; 
+                   110500;number;[CEDUR3.Allgemein.labor_calpro_value]➥ Calprotectin Wert;51|10000|1
+                ;end_row;;
+            ;stop_block;;
+;stop_fieldset;;;
+
+99991003;start_fieldset;<img height='14px' src='../forms/images/sae.svg'> Nebenwirkungen;
+    110905;radio_cb;Wurden Nebenwirkungen festgestellt, die durch die Medikation induziert wurden?;Ja|Nein;required
+;stop_fieldset;;;
+
+
+9517;start_fieldset;<span id='C_9517'></span>Stuhldrang;
+    119000;visual_range;[CEDUR3.lebensqualitaet.BUS] Wie stark war Ihr Stuhldrang (plötzliches oder dringendes Bedürfnis) in den vergangenen 24 Stunden? <br>➥ Bitte bewegen Sie den Schieberegler mit Finger oder Maus in die jeweilige Richtung.;Kein Stuhldrang|Schlimmstmöglicher Stuhldrang;required
+;stop_fieldset;;;
+
+
+1377995;start_fieldset;Lebensqualität (SIDBQ);
+    116700;select;[CEDUR3.lebensqualitaet.SIDBQ_1]<table class='td_num'><tr><td>1.</td><td>Wie oft war das Gefühl von Abgeschlagenheit oder Müdigkeit und Abgespanntheit in den letzten zwei Wochen ein Problem für Sie?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    116800;select;[CEDUR3.lebensqualitaet.SIDBQ_2]<table class='td_num'><tr><td>2.</td><td>Wie oft mussten Sie aufgrund Ihrer Darmerkrankung in den letzten zwei Wochen Treffen mit Freunden und/oder Verwandten verschieben oder absagen?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    116900;select;[CEDUR3.lebensqualitaet.SIDBQ_3]<table class='td_num'><tr><td>3.</td><td>Hatten Sie in den letzten zwei Wochen aufgrund Ihrer Darmerkrankung Schwierigkeiten, gewünschten Sport- und Freizeitaktivitäten nachzugehen?</td></tr></table>;Sehr grosse Schwierigkeiten|Grosse Schwierigkeiten|Ziemliche Schwierigkeiten|Etwas Schwierigkeiten|Wenig Schwierigkeiten|Kaum Schwierigkeiten|Keine Schwierigkeiten;required
+    117000;select;[CEDUR3.lebensqualitaet.SIDBQ_4]<table class='td_num'><tr><td>4.</td><td>Wie oft haben Sie in den letzten zwei Wochen unter Bauchschmerzen gelitten?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    117100;select;[CEDUR3.lebensqualitaet.SIDBQ_5]<table class='td_num'><tr><td>5.</td><td>Wie oft haben Sie sich in den letzten zwei Wochen bedrückt oder entmutigt gefühlt?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    117200;select;[CEDUR3.lebensqualitaet.SIDBQ_6]<table class='td_num'><tr><td>6.</td><td></b> Hatten Sie in den letzten zwei Wochen Probleme mit dem Abgehenlassen von Blähungen?</td></tr></table>;Sehr grosse Probleme|Grosse Probleme|Ziemliche Probleme|Etwas Probleme|Wenig Probleme|Kaum Probleme|Kein Problem;required
+    117300;select;[CEDUR3.lebensqualitaet.SIDBQ_7]<table class='td_num'><tr><td>7.</td><td>Hatten Sie in den letzten zwei Wochen Probleme, Ihr gewünschtes Gewicht zu halten oder zu erreichen?</td></tr></table>;Sehr grosse Probleme|Grosse Probleme|Ziemliche Probleme|Etwas Probleme|Wenig Probleme|Kaum Probleme|Kein Problem;required
+    117400;select;[CEDUR3.lebensqualitaet.SIDBQ_8]<table class='td_num'><tr><td>8.</td><td>Wie oft haben Sie sich in den letzten zwei Wochen locker und entspannt gefühlt?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    117500;select;[CEDUR3.lebensqualitaet.SIDBQ_9]<table class='td_num'><tr><td>9.</td><td>Wie oft haben Sie in den letzten zwei Wochen unter dem Gefühl gelitten, zur Toilette gehen zu müssen, obwohl Ihr Darm leer war?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+    117600;select;[CEDUR3.lebensqualitaet.SIDBQ_10]<table class='td_num'><tr><td>10.</td><td>Wie oft haben Sie sich in den letzten zwei Wochen aufgrund Ihrer Darmerkrankung zornig gefühlt?</td></tr></table>;Ständig|Meistens|Ziemlich oft|Manchmal|Selten|Fast Nie|Nie;required
+;stop_fieldset;;;
+ 
+1377996;start_fieldset;Lebensqualität (PROMIS);
+    119100;select;<table class='td_num'><tr><td>1.</td><td>Wie würden Sie Ihren Gesundheitszustand insgesamt beschreiben?</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119110;select;<table class='td_num'><tr><td>2.</td><td>Wie würden Sie Ihre Lebensqualität insgesamt beschreiben?</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119120;select;<table class='td_num'><tr><td>3.</td><td>Wie würden Sie Ihren körperlichen Gesundheitszustand insgesamt beschreiben?</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119130;select;<table class='td_num'><tr><td>4.</td><td>Wie würden Sie Ihre psychische Verfassung insgesamt beschreiben?<br>(Dazu zählen Ihre Stimmung und Ihre Fähigkeit, klar zu denken.)</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119140;select;<table class='td_num'><tr><td>5.</td><td>Wie zufrieden sind Sie insgesamt mit Ihren Aktivitäten mit anderen Menschen und mit Ihren Beziehungen zu anderen?</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119150;select;<table class='td_num'><tr><td>6.</td><td>Wie gut sind Sie insgesamt in der Lage, Aktivitäten mit anderen Menschen nachzugehen und Ihre Rollen im Alltag und in der Gemeinschaft auszufüllen.<br>(Dazu zählen Aktivitäten zu Hause, am Arbeitsplatz, in Ihrem Umfeld sowie Ihre Aufgaben als Elternteil, Sohn, Tochter, Lebenspartner/-in, im Berufsleben, in Ihrem Freundeskreis usw.)</td></tr></table>;ausgezeichnet|sehr gut|gut|einigermaßen|schlecht;required
+    119160;select;<table class='td_num'><tr><td>7.</td><td>Inwieweit sind Sie in der Lage, alltägliche körperliche Aktivitäten auszuführen, z. B. Gehen, Treppensteigen, Einkäufe tragen oder Stühle verschieben?</td></tr></table>;vollständig|größtenteils|halbwegs|ein wenig|überhaupt nicht;required
+    119170;select;<table class='td_num'><tr><td>8.</td><td>Wie oft haben Ihnen seelische Probleme zu schaffen gemacht, wie z. B. Angstgefühle, Traurigkeit, Niedergeschlagenheit oder Reizbarkeit? </td></tr></table>;nie|selten|manchmal|oft|immer;required
+    119180;select;<table class='td_num'><tr><td>9.</td><td>Wie ausgepägt war Ihre Müdigkeit im Durchschnitt?</td></tr></table>;keine Müdigkeit|schwach|mäßig|stark|sehr stark;required
+    119190;visual_range;<table class='td_num'><tr><td>10.</td><td>Wie würden Sie Ihre Schmerzen im Allgemeinen einschätzen?<br>➥ Bitte bewegen Sie den Schieberegler mit Finger oder Maus in die jeweilige Richtung.</td></tr></table>;Keine Schmerzen|Schlimmstmögliche Schmerzen;required
+;stop_fieldset;;;
+
+5915;info_100;Vielen Dank, dass Sie sich bereits die Zeit genommen haben, unseren Fragebogen auszufüllen. Uns ist bewusst, dass dies mit Aufwand verbunden ist. Der folgende Abschnitt ist daher freiwillig – wir würden uns jedoch sehr freuen, wenn Sie auch diesen beantworten. Ihre Angaben helfen dabei, die Behandlungsqualität weiter zu verbessern – zu Ihrem Nutzen und dem anderer Patientinnen und Patienten.<br>@blank@;;
+
+1377997;start_fieldset;Lebensqualität (FACIT - Fragebogen zur Einstufung der Erschöpfung);
+    117700;select;[CEDUR3.lebensqualitaet.FACIT_01]<table class='td_num'><tr><td>1.</td><td>Ich bin erschöpft</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    117800;select;[CEDUR3.lebensqualitaet.FACIT_02]<table class='td_num'><tr><td>2.</td><td>Ich fühle mich insgesamt schwach</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    117900;select;[CEDUR3.lebensqualitaet.FACIT_03]<table class='td_num'><tr><td>3.</td><td>Ich fühle mich lustlos (ausgelaugt)</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118000;select;[CEDUR3.lebensqualitaet.FACIT_04]<table class='td_num'><tr><td>4.</td><td>Ich bin müde</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118100;select;[CEDUR3.lebensqualitaet.FACIT_05]<table class='td_num'><tr><td>5.</td><td>Es fällt mir schwer, etwas anzufangen, weil ich müde bin</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118200;select;[CEDUR3.lebensqualitaet.FACIT_06]<table class='td_num'><tr><td>6.</td><td>Es fällt mir schwer, etwas zu Ende zu führen, weil ich müde bin</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118300;select;[CEDUR3.lebensqualitaet.FACIT_07]<table class='td_num'><tr><td>7.</td><td>Ich habe Energie</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118400;select;[CEDUR3.lebensqualitaet.FACIT_08]<table class='td_num'><tr><td>8.</td><td>Ich bin in der Lage, meinen gewohnten Aktivitäten nachzugehen (Beruf, Einkaufen, Schule, Freizeit, Sport usw.)</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118500;select;[CEDUR3.lebensqualitaet.FACIT_09]<table class='td_num'><tr><td>9.</td><td>Ich habe das Bedürfnis, tagsüber zu schlafen.</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118600;select;[CEDUR3.lebensqualitaet.FACIT_10]<table class='td_num'><tr><td>10.</td><td>Ich bin zu müde, um zu essen</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118700;select;[CEDUR3.lebensqualitaet.FACIT_11]<table class='td_num'><tr><td>11.</td><td>Ich brauche Hilfe bei meinen gewohnten Aktivitäten (Beruf, Einkaufen, Schule, Freizeit, Sport usw.)</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118800;select;[CEDUR3.lebensqualitaet.FACIT_12]<table class='td_num'><tr><td>12.</td><td>Ich bin frustriert weil ich zu müde bin, die Dinge zu tun, die ich machen möchte</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+    118900;select;[CEDUR3.lebensqualitaet.FACIT_13]<table class='td_num'><tr><td>13.</td><td>Ich musste meine sozialen Aktivitäten einschränken, weil ich müde bin.</td></tr></table>;Überhaupt nicht|Ein wenig|Mäßig|Ziemlich|Sehr;
+;stop_fieldset;;;

@@ -1,0 +1,65 @@
+id;type;name;options;required
+;start_hidden_row;;
+90;text;pid;;
+91;text;Praxis-ID;;
+92;text;Cedur-Nr.;;
+93;text;VID;;
+94;text;Baseline;;
+95;text;Diagnose;;
+96;text;Geschlecht;;
+100;text;E;;
+;end_row;;
+
+98561;start_fieldset;Nebenwirkung;
+10050020;select_col;Nebenwirkung-Gruppe|Bitte wählen;Allergische Reaktion|Atemwege|Auge|Gastrointestinal|Haut- und Anhangsgebilde|Herz-Kreislaufsystem|Hormonsystem|Hämatologisch|Infektionen|Malignome|Nervensystem|Niere|Skelettsystem|Stoffwechsel;required
+10050040;select_col;Nebenwirkung|Bitte wählen;;
+10050050;date_tc_col;Beginn;1950|this_year|true|false|Y(MD)|de;required
+10050070;select_col;Noch andauernd;Ja|Nein;required
+    ;start_block;Nein;10050070;
+        ;start_row;;
+        10050075;date_tc_col;Ende;1950|this_year|true|false|Y(MD)|de;
+        ;end_row;;
+   ;stop_block;;;
+10050080;select_col;Schweregrad;leicht|mittelgradig|schwerwiegend|lebensbedrohlich|tot;required
+10050090;select_col;Hospitalisierung;Ja|Nein;required
+    ;start_block;Ja;10050090;
+    ;start_row;;
+    10050100;select_col;UAW-Meldung;Erstmeldung|Folgemeldung;
+        ;start_block;Erstmeldung Folgemeldung;10050100;
+            ;start_row;;
+            10050110;select_col;Maßnahme nach UAW;keine|Dosisreduktion|neue Dosis|vorübergehend abgesetzt|dauerhaft abgesetzt;
+            10050120;select_col;Re-Exposition nach UAW;Ja|Nein;
+            ;start_block;Ja;10050120;
+                    ;start_row;;
+                    10050130;select_col;Erneutes Auftreten?;Ja|Nein;
+                    ;end_row;;
+            ;stop_block;;
+            ;start_block;Folgemeldung;10050100;
+                ;start_row;;
+                10050140;select_col;Ausgang;wiederhergestellt|wiederhergestellt mit Schädigung|nicht wiederhergestellt|unbekannt|Exitus;
+                    ;start_block;Exitus;10050140;
+                        ;start_row;;
+                        10050150;text_col;Todesursache;;
+                        ;end_row;;
+                    ;stop_block;;;
+                ;end_row;;
+            ;stop_block;;
+            ;end_row;;
+        ;stop_block;;;
+    ;end_row;;
+    ;stop_block;;;
+10050160;select_col;Möglicher medikamentöser Zusammenhang;kein Zusammenhang|Zusammenhang unwahrscheinlich|Zusammenhang möglich|Zusammenhang wahrscheinlich|Zusammenhang sicher;required
+    ;start_block;kein Zusammenhang;10050160;
+        ;start_row;;
+        10050170;text_col;Andere Ursache;;
+        ;end_row;;
+    ;stop_block;;;
+    ;start_block;Zusammenhang unwahrscheinlich Zusammenhang möglich Zusammenhang wahrscheinlich Zusammenhang sicher;10050160;
+        ;start_row;;
+        10050180;select_col;Medikament;;
+        ;end_row;;
+;stop_fieldset;;
+
+;start_fieldset;Verlauf Nebenwirkungen;
+;iframe;<iframe id='<?php echo $fcid?>_nebenwirkung' style='width:100%@semikolon@border:0@semikolon@'></iframe>;;
+;stop_fieldset;;
