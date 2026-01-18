@@ -134,7 +134,7 @@ function build_med_block($fcid, $med_data_a)
     $disabled = '';
     $bgcolor = '#fcfcfc';
     $is_previste_med = $med_data_a[$fcid][10020021] ?? "";
-    // echo "<pre>"; echo print_r($_SESSION['rl']); echo "</pre>";
+    // echo "<pre>"; echo print_r($_SESSION['rl']); echo "</pre>".$is_previste_med;
     if ($is_previste_med) {
         $readonly = ' readonly';
         $disabled = ' disabled';
@@ -148,11 +148,19 @@ function build_med_block($fcid, $med_data_a)
         <div class='col_23'>
             <input" . $readonly . " type='text' id='FF_10020040_" . $fcid . "' name='FF_10020040_" . $fcid . "' list='med_suggestions' placeholder='Medikament eingeben' value='" . ($med_data_a[$fcid][10020040] ?? '') . "'>
         </div>
-        <div class='col_23'>
-            <select" . $disabled . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "'></select>
-            <script>
-                fillYearSelect('FF_10020050_" . $fcid . "', 1950, 'this_year', true, false, " . json_encode($med_data_a[$fcid][10020050] ?? '') . ");
-            </script>
+        <div class='col_23'>";
+    $date_val = json_encode($med_data_a[$fcid][10020050] ?? '');
+    if ($date_val) $date_val = str_replace('"','',$date_val);
+    echo "<br>".$date_val ;
+    if (!$date_val)
+        $html_str .= "        
+                <select" . $disabled . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "'></select>
+                <script>
+                    fillYearSelect('FF_10020050_" . $fcid . "', 1950, 'this_year', true, false, " . $date_val . ");
+                </script>";
+    else $html_str .= "        
+                <input type='text' " . $readonly . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "' value='".$date_val."'>";
+    $html_str .= "        
         </div>
         <div class='col_23 back_img'>
            <select  id='FF_10020080_" . $fcid . "' name='FF_10020080_" . $fcid . "'><option value=''></option></select>
