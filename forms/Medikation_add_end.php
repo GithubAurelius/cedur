@@ -358,7 +358,9 @@
     }
 
     const input_start = document.getElementById("FF_10020050");
-    input_start.placeholder = "Kein '-' eingeben, YYYY-MM-DD MM, DD optional";
+    const input_start_span = document.getElementById("isp_FF_10020050");
+    input_start_span.textContent = 'YYYY-MM-DD mit MM,DD optional';
+    input_start.placeholder = "Kein '-' eingeben, Bindestrich automatisch ! ";
 
     input_start.addEventListener("input", function() {
         let v = this.value.replace(/\D/g, "").slice(0, 8);
@@ -384,7 +386,9 @@
 
 
     const input_stop = document.getElementById("FF_10020060");
-    input_stop.placeholder = "Kein '-' eingeben, YYYY-MM-DD MM, DD optional";
+    const input_stop_span = document.getElementById("isp_FF_10020060");
+    input_stop_span.textContent = 'YYYY-MM-DD mit MM,DD optional';
+    input_stop.placeholder = "Kein '-' eingeben, Bindestrich automatisch !";
 
     input_stop.addEventListener("input", function() {
         let v = this.value.replace(/\D/g, "").slice(0, 8);
