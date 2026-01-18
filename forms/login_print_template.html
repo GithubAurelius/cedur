@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <html lang='de'>
+    <head>
+    <meta charset='UTF-8'>
+    <title>MIQ Zugang</title>
+    <style>
+        body {
+        font-family: 'Arial', sans-serif;
+        font-size: 13pt;
+        margin: 2mm;
+        color: #000;
+        }
+        h1 {
+        font-size: 20pt;
+        font-weight: bold;
+        }
+        .field-label {
+        font-weight: bold;
+        }
+        @media print {
+        body {
+            margin: 10mm 15mm;
+            font-size: 12pt;
+        }
+        h1 {
+            font-size: 36pt;
+            font-weight: bold;
+            }
+
+            .access-data {
+                margin-bottom: 34px;
+            }
+
+            .instructions ol {
+                padding-left: 30px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+    <h1> [PROJECTNAME] Zugangsdaten</h1>
+
+    <div class='access-data'>
+        <p><span class='field-label'>Webseite: </span> <a target='_BLANK' href='[BASEURL]'>[BASEURL]</a></p>
+        <p><span class='field-label'>Benutzername: </span> [USERNAME] </p>
+        <p><span class='field-label'>Initial-Passwort: </span> [TOKEN] </p>
+    </div>
+
+    <div class='instructions'>
+        <p>Zur erstmaligen Aktivierung Ihres Zugangs:</p>
+        <ol>
+        <li>Sie haben zwei Möglichkeiten zur Anmeldung: 
+        <ul>
+            <li>Entweder Sie nutzen den QR-Code mit Ihrem Mobilgerät oder</li>
+            <li>Sie öffnen die oben angegebene Webseite in Ihrem Browser.</li>
+        </ul>
+        <li>Geben Sie den oben angegebenen Token (Initial-Passwort) ein.</li>
+        <li>Erstellen Sie Ihr Passwort:</li>
+        <ul>
+            <li>Das Passwort muss mindestens <strong>10 Zeichen</strong> lang sein.</li>
+            <li>Es muss mindestens <strong>ein Sonderzeichen</strong> enthalten.</li>
+            <li>Es muss mindestens <strong>eine Zahl</strong> enthalten.</li>
+            <li>Es muss mindestens <strong>einen Großbuchstaben</strong> enthalten.</li>
+        </ul>
+        <li>Bestätigen Sie mit „Passwort speichern“</li>
+        <li>Sie können sich nun ab sofort mit Ihrem Login und Ihrem Passwort anmelden.</li>
+        </ol>
+        <!--<p>Falls Sie Ihr Passwort vergessen haben, wenden Sie sich bitte an einen Mitarbeiter der Praxis/des Zentrums.</p>-->
+        <p>Beachten Sie bitte, dass das Initial-Passwort nur 24h gültig ist.</p>
+    </div>
+    <br>
+    <br>
+    <div class='qr-section'>
+        <img src='[QRCODE]' alt='QR Code' style='width: 200px; height: 200px;'>
+    </div>
+    </body>
+    </html>

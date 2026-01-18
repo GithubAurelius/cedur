@@ -1,0 +1,75 @@
+id;type;name;
+;start_fieldset;Beschreibung;
+    110;text_1br;Kurzbeschreibung;
+    120;textarea_1br;Beschreibung;3
+;stop_fieldset;;;
+
+;start_fieldset;Zusatzangaben;
+    180;text_1br;Verantwortlicher;
+    170;select_1br;Gewerk/ Bereich;Durchbruch|Brandschutz
+    140;date_1br;Termin;
+    130;select_1br;Status;10%|20%|40%|60%|80%|90%|95%
+    160;text_1br;Kosten;
+    150;text_1br;Raum;
+;stop_fieldset;;;
+
+;start_fieldset;Luftmengen;
+1205;radio_cb;Luftmengen-Angabe;;
+;start_block;Ja;1205
+    ;start_row;;
+        ;info_100;<hr>;
+        1210;text_1br;LM Zuluft HDR - LP3 in m³;
+        1220;text_1br;LM Abluft HDR - LP3 in m³;
+        1230;text_1br;LM Zuluft CP - LP3 in m³;
+        1240;text_1br;LM Abluft CP - LP3 in m³;
+        1250;text_1br;LM Zuluft DIEHL LP8 in m³;
+        1260;text_1br;LM Abluft DIEHL LP8 in m³;
+        1270;text_1br;LM Zuluft DIEHL LP9 nach IBN in m³;
+        1280;text_1br;LM Abluft DIEHL LP9 nach IBN in m³;
+    ;end_row;; 
+;stop_block;;
+;stop_fieldset;;;
+
+;start_fieldset;Verfolgung/ Dokumentation;;
+    190;textarea;Kommentar/ Bemerkung;2
+    5001;file;Dokumentation/ Bilder;
+;stop_fieldset;;;
+
+;start_block;Durchbruch;170
+    ;start_fieldset;Durchbrüche und Beschreibung der Einbaulage;;
+        1010;text_1br;Durchbruchsnummer;
+        1020;select_1br;Leistung;Leerdurchbruch|Rohbau|Rohrschott|Kabelschott|Kombischott|Tür|Fenster|Brandschutzklappe|Brandschutzventil|Entrauchungsklappe|Promatkanal|Installationskanal|Durchbruch geplant - nicht ausgeführt
+        1030;select_1br;Feuerwiederstandsklasse;F0 keine|F30|F90|E30|E90|K30|K90|S30|S90|T0 RS|T30|T30 RS|T90|T90 RS|I30|I90|G30|G90
+        1060;select_1br;Planquadrat;0000|0001|0002|0003|0004|0005|0006
+        1070;select_1br;Ebene;U2|U1|E0|E1|E2|E3|E4|DG
+        1090;select_1br;Einbauort;WAND|DECKE|BODEN
+        1040;fileselect;Zulassungsdokument;9010
+        1050;fileselect;weitere Dokumente;9020
+    ;stop_fieldset;;;
+;stop_block;;
+
+;start_fieldset;Zustand der Leistung;
+1105;radio_cb;Zustand der Leistung kommentieren;;
+    ;start_block;Ja;1105
+        1120;select_1br;Vorleistung  abgeschlossen;ja|nein
+            ;start_block;nein;1120
+                1130;text_1br;Kommentar zur Vorleistung;1
+            ;stop_block;;
+            ;start_block;ja;1120
+                    1140;select_1br;Leistung abgeschlossen?;ja|nein
+                        ;start_block;nein;1140
+                            1150;text_1br;Kommentar zur Leistung;1
+                        ;stop_block;;
+                        ;start_block;ja;1140
+                            1160;select_1br;Leistung abgenommen;ja|nein
+                            ;start_block;nein;1160
+                                1170;text_1br;Kommentar zur Abnahme;1
+                            ;stop_block;;
+                    ;stop_block;;
+            ;stop_block;;
+        ;stop_block;;
+;stop_fieldset;;;
+
+;start_hidden_row;;
+    1999;text;Eltern;
+;end_row;;

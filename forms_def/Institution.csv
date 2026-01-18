@@ -1,0 +1,13 @@
+id;type;name;
+;start_fieldset;Zentrum;
+10000010;number;Zentrums-ID (Gruppe);0|100|1;;
+10000001;text;Zentrumssnummer;
+10000002;text;Zentrumsname;
+10000003;text;Ansprechpartner*in;
+10000004;text;E-Mail;
+10000005;text;Telefon;
+;stop_fieldset;;
+
+;start_fieldset;Einheiten;
+10000021;select;Hämoglobin;g/dl|mmol/l
+;stop_fieldset;;

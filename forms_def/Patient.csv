@@ -1,0 +1,28 @@
+id;type;name;options;required
+;start_hidden_row;;C
+    101;text;created;;
+    102;text;oldpid;;
+    97;text;Groesse;;
+    100;text;E;;
+    10005020;text;;
+    33;text;patient_zuletzt_informiert;
+;end_row;;
+
+99921;start_fieldset;Patient;
+   91;text_1_col_30;Praxis-Nummer;;required
+    96;select_1_col_30;Geschlecht;weiblich|männlich|divers;required
+    95;select_1_col_30;[CEDUR3.Allgemein.CDAI001]Diagnose;Morbus Crohn|Colitis ulcerosa|Colitis indeterminata;required
+    10003020;number_1_col_30;Geburtsjahr;1910|this_year|1;required
+    10003040;text_1_col_30;E-Mail;;
+    92;text_1_col_30;Cedur-Nr.|Automatikfeld;;
+    ;info_100;<hr>;
+    10003110;radio_cb;Biobank Aufklärung unterschrieben;;
+    10003120;select_mt;Biomaterial;Blut|Stuhl|Gewebe|Urin|Speichelprobe;
+    ;info_100;<hr>;
+    999467;info_100;;
+
+;stop_fieldset;;
+
+99922;start_fieldset;;
+10003050;idonly_100;;;
+;stop_fieldset;;

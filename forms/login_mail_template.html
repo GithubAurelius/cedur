@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='de'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>MIQ Zugang</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 13pt;
+            margin: 2mm;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 20pt;
+            font-weight: bold;
+        }
+
+        .field-label {
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                margin: 10mm 15mm;
+                font-size: 12pt;
+            }
+
+            h1 {
+                font-size: 36pt;
+                font-weight: bold;
+            }
+
+            .access-data {
+                margin-bottom: 34px;
+            }
+
+            .instructions ol {
+                padding-left: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Zugangsdaten CEDUR Dokumentation</h1>
+
+    <div class='access-data'>
+        <p><span class='field-label'>Webseite: </span> <a target='_BLANK' href='[BASEURL]'>[BASEURL]</a></p>
+        <p><span class='field-label'>Nutzername: </span> [USERNAME] </p>
+        <p><span class='field-label'>Initial-Passwort: </span> [TOKEN] </p>
+    </div>
+
+    <div class='instructions'>
+        <p>Sie können Ihr Passwort im System unter dem Menüpunkt Service ändern.<br>Beachten Sie dabei:</p>
+        <ul>
+            <li>Das Passwort muss mindestens <strong>10 Zeichen</strong> lang sein.</li>
+            <li>Es muss mindestens <strong>ein Sonderzeichen</strong> enthalten.</li>
+            <li>Es muss mindestens <strong>eine Zahl</strong> enthalten.</li>
+            <li>Es muss mindestens <strong>einen Großbuchstaben</strong> enthalten.</li>
+        </ul>
+    </div>
+    <strong>Bitte bewahren Sie diese E-Mail sicher auf.</strong>
+    <br><br>Neue Passwörter können wir nur an bekannte und verifizierte E-Mail-Adressen vergeben.
+    <br>
+    Wenn Sie Ihr Passwort einmal verlieren sollten, schreiben Sie uns bitte eine kurze E-Mail.
+
+</body>
+
+</html>
