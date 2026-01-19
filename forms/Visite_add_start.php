@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['m_uid'] == 12025091416255056){
+if ($_SESSION['m_uid'] == 2025091416255056){
     $temp_a = [];
     $query = "SELECT fcid,usergroup FROM forms_10005 WHERE fid=100 AND fcont='{\"FF_0\":-1}'";
     $stmt = $db->prepare($query);
