@@ -639,6 +639,32 @@
             console.error('❌ Hauptfehler im DOMContentLoaded:', mainErr);
         }
     });
+
+    const verwandte = document.getElementById('B_105000_Ja');
+    if (verwandte) {
+        const targetRowDiv = verwandte.firstElementChild;
+        if (targetRowDiv && targetRowDiv.classList.contains('row')) {
+            // targetRowDiv.style.backgroundColor = '#e0f7fa';
+            // targetRowDiv.style.border = '1px solid #00bcd4';
+            targetRowDiv.style.alignItems = 'flex-end';
+            targetRowDiv.style.justifyContent = 'flex-end';
+            // console.log("gefunden:", targetRowDiv);
+        } else {
+            console.log("nicht vorhanden oder hat nicht die Klasse 'row'.");
+        }
+    }
+
+    fieldsetIds = ['FS_1377995', 'FS_1377996', 'FS_1377997', 'B_105000_Ja'];
+    for (let i = 0; i < fieldsetIds.length; i++) {
+        const currentId = fieldsetIds[i];
+        const fieldsetElement = document.getElementById(currentId);
+        if (fieldsetElement) {
+            fieldsetElement.style.alignItems = 'flex-start';
+            fieldsetElement.style.justifyContent = 'flex-start';
+        } else {
+            console.warn(`Element mit ID '${currentId}' nicht im DOM gefunden.`);
+        }
+    }
 </script>
 <style>
     #smiley-container {
@@ -719,7 +745,7 @@
     if (mmtt >= 1001 && mmtt < 1201) {
         smiley_png = 'smileyC_herbst.png';
     }
-    if (mmtt >= 1201 && mmtt <= 1231) { 
+    if (mmtt >= 1201 && mmtt <= 1231) {
         smiley_png = 'smileyC_holiday.png';
     }
 
@@ -751,103 +777,122 @@
     `;
 
 
-    // 1. Array der zu prüfenden Nummern
-    const ffNumbers = [
-        '117700', '117800', '117900', '118000', '118100', '118200',
-        '118300', '118400', '118500', '118600', '118700', '118800', '118900'
-    ];
+    // // Array der zu prüfenden Nummern
+    // const ffNumbers = [
+    //     '117700', '117800', '117900', '118000', '118100', '118200',
+    //     '118300', '118400', '118500', '118600', '118700', '118800', '118900'
+    // ];
 
-    function areAllFFInputsFilled() {
-        return ffNumbers.every(number => {
-            const selector = `select[name="FF_${number}"]`;
-            const inputElement = document.querySelector(selector);
-            // Prüft, ob das Element existiert und der bereinigte Wert nicht leer ist
-            return inputElement && inputElement.value.trim() !== '';
-        });
-    }
+    // function areAllFFInputsFilled() {
+    //     return ffNumbers.every(number => {
+    //         const selector = `select[name="FF_${number}"]`;
+    //         const inputElement = document.querySelector(selector);
+    //         // Prüft, ob das Element existiert und der bereinigte Wert nicht leer ist
+    //         return inputElement && inputElement.value.trim() !== '';
+    //     });
+    // }
 
-    ffNumbers.forEach(number => {
-        const selector = `select[name="FF_${number}"]`;
-        const inputElement = document.querySelector(selector);
-        if (inputElement) {
-            // Bindet die Prüfung an die Events 'input' (während der Eingabe) und 'change' (beim Verlassen des Feldes)
-            // inputElement.addEventListener('input', checkAndReport);
-            inputElement.addEventListener('change', checkAndReport);
-        }
-    });
+    // ffNumbers.forEach(number => {
+    //     const selector = `select[name="FF_${number}"]`;
+    //     const inputElement = document.querySelector(selector);
+    //     if (inputElement) {
+    //         // Bindet die Prüfung an die Events 'input' (während der Eingabe) und 'change' (beim Verlassen des Feldes)
+    //         // inputElement.addEventListener('input', checkAndReport);
+    //         inputElement.addEventListener('change', checkAndReport);
+    //     }
+    // });
 
-    // 3. Die Callback-Funktion, die die Prüfung durchführt und das Ergebnis meldet
-    function checkAndReport() {
-        const allFilled = areAllFFInputsFilled();
+    // // Die Callback-Funktion, die die Prüfung durchführt und das Ergebnis meldet
+    // function checkAndReport() {
+    //     const allFilled = areAllFFInputsFilled();
+    //     console.log("XXX:" + errors);
+    //     if (allFilled) {
+    //         if (errors === 0)
+    //             if (user_is_patient) document.body.insertAdjacentHTML('beforeend', smileyHTML_FACIT);
+    //         return 1;
+    //         // console.log("ALLE Felder sind jetzt vollständig ausgefüllt. ✅");
 
-        if (allFilled) {
-            if (errors === 0)
-                if (user_is_patient) document.body.insertAdjacentHTML('beforeend', smileyHTML_FACIT);
-            return 1;
-            // console.log("ALLE Felder sind jetzt vollständig ausgefüllt. ✅");
-
-        } else {
-            return 0;
-            // console.warn("Es fehlen noch Eingaben. ⚠️");
-        }
-    }
-
-
+    //     } else {
+    //         return 0;
+    //         // console.warn("Es fehlen noch Eingaben. ⚠️");
+    //     }
+    // }
 
 
     // const error_save = document.getElementById('FF_100');
     // if (error_save)
     //     if (error_save.value =='{}') document.body.insertAdjacentHTML('beforeend', smileyHTML);
 
-    const verwandte = document.getElementById('B_105000_Ja');
-    if (verwandte) {
-        const targetRowDiv = verwandte.firstElementChild;
-        if (targetRowDiv && targetRowDiv.classList.contains('row')) {
-            // targetRowDiv.style.backgroundColor = '#e0f7fa';
-            // targetRowDiv.style.border = '1px solid #00bcd4';
-            targetRowDiv.style.alignItems = 'flex-end';
-            targetRowDiv.style.justifyContent = 'flex-end';
-            // console.log("gefunden:", targetRowDiv);
+
+
+    // let lastErrorsValue;
+    // const watcher = setInterval(() => {
+    //     try {
+    //         // Prüfen, ob die Variable existiert
+    //         if (typeof errors !== "undefined") {
+    //             if (errors !== lastErrorsValue) {
+    //                 console.log("errors geändert →", errors);
+    //                 lastErrorsValue = errors;
+    //             }
+    //             if (errors === 0) {
+    //                 // alert("✅ Fehler = 0!");
+    //                 if (user_is_patient) {
+    //                     document.body.insertAdjacentHTML('beforeend', smileyHTML);
+    //                 } else document.body.insertAdjacentHTML('beforeend', smileyHTM_MEDIC);
+    //                 clearInterval(watcher); // Überwachung stoppen, wenn du willst
+    //             }
+    //         }
+    //     } catch (e) {
+    //         console.error("Fehler beim Überwachen:", e);
+    //     }
+    // }, 200);
+
+    // let lastErrorsValue;
+    // const watcher = setInterval(() => {
+    //     if (typeof errors !== "undefined") {
+    //         // Wir wandeln das Objekt in einen String um zum Vergleichen
+    //         let currentSerialized = JSON.stringify(errors);
+
+    //         if (currentSerialized !== lastErrorsValue) {
+    //             console.log("Inhalt von errors hat sich echt geändert!");
+    //             lastErrorsValue = currentSerialized;
+
+    //             // Logik für den Smiley
+    //             if (errors === 0 || (typeof errors === "object" && Object.keys(errors).length === 0)) {
+    //                 const html = user_is_patient ? smileyHTML : smileyHTM_MEDIC;
+    //                 document.body.insertAdjacentHTML('beforeend', html);
+    //                 clearInterval(watcher);
+    //                 console.log("XXX");
+    //             }
+    //         }
+    //     }
+    // }, 200);
+
+    const errors_patient = <?= json_encode($errors_patient) ?>;
+    const errors_medic   = <?= json_encode($errors_medic) ?>;
+    
+    const error_fid = user_is_patient ? 101 : 102;
+    const error_emo = user_is_patient ? '✔️' : '✅';
+    const html = user_is_patient ? smileyHTML : smileyHTM_MEDIC;
+    window.addEventListener('errorsChanged', (e) => {
+        // console.log(e);
+        const actual_errors = e.detail;
+        // Spezifische Logik nur für dieses Skript
+        if (actual_errors === 0) {
+            fetchDataAndUpdateForm(fcid, 10005, error_fid, error_emo);
+            fetchDataAndUpdateForm(fcid, 10010, error_fid, error_emo);
+            document.body.insertAdjacentHTML('beforeend', html);
         } else {
-            console.log("nicht vorhanden oder hat nicht die Klasse 'row'.");
+            fetchDataAndUpdateForm(fcid, 10005, error_fid, actual_errors);
+            fetchDataAndUpdateForm(fcid, 10010, error_fid, actual_errors);
         }
-    }
+    });
 
-    fieldsetIds = ['FS_1377995', 'FS_1377996', 'FS_1377997', 'B_105000_Ja'];
-    for (let i = 0; i < fieldsetIds.length; i++) {
-        const currentId = fieldsetIds[i];
-        const fieldsetElement = document.getElementById(currentId);
-        if (fieldsetElement) {
-            fieldsetElement.style.alignItems = 'flex-start';
-            fieldsetElement.style.justifyContent = 'flex-start';
-        } else {
-            console.warn(`Element mit ID '${currentId}' nicht im DOM gefunden.`);
-        }
-    }
+    if (user_is_patient && errors_patient === '✔️') document.body.insertAdjacentHTML('beforeend', html);
+    if ((user_is_patient && errors_patient === '✔️') && (!user_is_patient && errors_medic === '✅' )) document.body.insertAdjacentHTML('beforeend', html);
 
-    let lastErrorsValue;
-    const watcher = setInterval(() => {
-        try {
-            // Prüfen, ob die Variable existiert
-            if (typeof errors !== "undefined") {
-                if (errors !== lastErrorsValue) {
-                    // console.log("errors geändert →", errors);
-                    lastErrorsValue = errors;
-                }
-
-                if (errors === 0) {
-                    // alert("✅ Fehler = 0!");
-                    if (user_is_patient) {
-                        if (!checkAndReport()) document.body.insertAdjacentHTML('beforeend', smileyHTML);
-
-                    } else document.body.insertAdjacentHTML('beforeend', smileyHTM_MEDIC);
-                    clearInterval(watcher); // Überwachung stoppen, wenn du willst
-                }
-            }
-        } catch (e) {
-            console.error("Fehler beim Überwachen:", e);
-        }
-    }, 200);
+    
+    
 </script>
 <?php
 if ($user_is_patient) {

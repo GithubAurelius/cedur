@@ -1,4 +1,6 @@
 <?php
+$data_def_a['desc_a']['F_101'] = 'PAT';
+$data_def_a['desc_a']['F_102'] = 'MED';
 //echo "<pre>"; echo print_r($_REQUEST); echo "</pre>";
 ?>
 <script>

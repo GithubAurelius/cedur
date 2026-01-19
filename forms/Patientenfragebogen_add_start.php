@@ -80,6 +80,9 @@ $diagnosis =  $form_data_a[$_SESSION['param']['diagnosis']];
 $gender = $form_data_a[$_SESSION['param']['geschlecht']];
 
 
+$errors_patient = $form_data_a[101] ?? "";
+$errors_medic   = $form_data_a[102] ?? "";
+
 // echo "<br><r><br><br>PRE:" . $pre_visite . " THIS:" . $fcid;
 // echo "<br><br><br>D: ".$diagnosis." G:".$groesse. " H:".$helper;
 // echo "<br><br><br><pre>"; echo print_r($form_data_a); echo "</pre>";echo "<br><br><br><pre>"; echo print_r($_SESSION); echo "</pre>";
