@@ -1,26 +1,26 @@
 <?php
 
-if ($_SESSION['m_uid'] == 2025091416255056){
-    $temp_a = [];
-    $query = "SELECT fcid,usergroup,fcont FROM forms_10005 WHERE fid=100 AND fcont<>'{}'AND fcont<>'{\"FF_0\":-1}'"; // fcid>2025090100002900 AND 
-    $stmt = $db->prepare($query);
-    $stmt->execute();
-    $temp_a = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // echo "<pre>"; echo print_r($temp_a); echo "</pre>";
-    foreach ($temp_a as $key => $fcid_a) { 
-        $count_a = explode(",",$fcid_a['fcont']);
-        echo $fcid_a['fcid']." ".$fcid_a['usergroup']." ".count($count_a)."<br>"; 
-        // $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 101, '✔️', ".$fcid_a['usergroup'].");";
-        // $stmt = $db->prepare($query);
-        // $stmt->execute();
-        $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 102, ".count($count_a).", ".$fcid_a['usergroup'].");";
-        //$query = "DELETE FROM forms_10005 WHERE fcid=".$fcid_a['fcid']." AND fid=102";
-        $stmt = $db->prepare($query);
-        $stmt->execute();    
-    }
+// if ($_SESSION['m_uid'] == 12025091416255056){
+//     $temp_a = [];
+//     $query = "SELECT fcid,usergroup,fcont FROM forms_10005 WHERE fid=100 AND fcont<>'{}'AND fcont<>'{\"FF_0\":-1}'"; // fcid>2025090100002900 AND 
+//     $stmt = $db->prepare($query);
+//     $stmt->execute();
+//     $temp_a = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     // echo "<pre>"; echo print_r($temp_a); echo "</pre>";
+//     foreach ($temp_a as $key => $fcid_a) { 
+//         $count_a = explode(",",$fcid_a['fcont']);
+//         echo $fcid_a['fcid']." ".$fcid_a['usergroup']." ".count($count_a)."<br>"; 
+//         // $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 101, '✔️', ".$fcid_a['usergroup'].");";
+//         // $stmt = $db->prepare($query);
+//         // $stmt->execute();
+//         $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 102, ".count($count_a).", ".$fcid_a['usergroup'].");";
+//         //$query = "DELETE FROM forms_10005 WHERE fcid=".$fcid_a['fcid']." AND fid=102";
+//         $stmt = $db->prepare($query);
+//         $stmt->execute();    
+//     }
 
-    exit;
-}
+//     exit;
+// }
 
 function get_visits($db, $pid){ // identify first visit for one-time-fields
     $query = "SELECT fcid FROM forms_10005 WHERE fid=90 AND fcont=:pid ORDER BY fcid;";
