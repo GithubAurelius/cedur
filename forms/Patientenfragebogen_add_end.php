@@ -869,30 +869,44 @@
     // }, 200);
 
     const errors_patient = <?= json_encode($errors_patient) ?>;
-    const errors_medic   = <?= json_encode($errors_medic) ?>;
-    
+    const errors_medic = <?= json_encode($errors_medic) ?>;
+
     const error_fid = user_is_patient ? 101 : 102;
     const error_emo = user_is_patient ? '✔️' : '✅';
     const html = user_is_patient ? smileyHTML : smileyHTM_MEDIC;
-    window.addEventListener('errorsChanged', (e) => {
-        // console.log(e);
-        const actual_errors = e.detail;
-        // Spezifische Logik nur für dieses Skript
-        if (actual_errors === 0) {
-            fetchDataAndUpdateForm(fcid, 10005, error_fid, error_emo);
-            fetchDataAndUpdateForm(fcid, 10010, error_fid, error_emo);
-            document.body.insertAdjacentHTML('beforeend', html);
-        } else {
-            fetchDataAndUpdateForm(fcid, 10005, error_fid, actual_errors);
-            fetchDataAndUpdateForm(fcid, 10010, error_fid, actual_errors);
-        }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Die zentrale Logik-Funktion definieren
+        const updateErrorStatus = (actual_errors) => {
+            // console.log("Verarbeite Fehlerstand:", actual_errors);
+
+            if (actual_errors === 0) {
+                fetchDataAndUpdateForm(fcid, 10005, error_fid, error_emo);
+                fetchDataAndUpdateForm(fcid, 10010, error_fid, error_emo);
+
+                // Smiley nur hinzufügen, wenn er noch nicht da ist
+                if (!document.getElementById('success-smiley')) {
+                    document.body.insertAdjacentHTML('beforeend', `<div id="success-smiley">${html}</div>`);
+                }
+            } else {
+                fetchDataAndUpdateForm(fcid, 10005, error_fid, actual_errors);
+                fetchDataAndUpdateForm(fcid, 10010, error_fid, actual_errors);
+            }
+        };
+
+        // 2. Den Listener für zukünftige Änderungen (Events) aktivieren
+        window.addEventListener('errorsChanged', (e) => {
+            updateErrorStatus(e.detail);
+        });
+
+        // 3. SOFORT beim Laden einmalig ausführen mit dem aktuellen Wert
+        // Wir greifen hier direkt auf window.errors zu
+        updateErrorStatus(window.errors);
     });
 
-    if (user_is_patient && errors_patient === '✔️') document.body.insertAdjacentHTML('beforeend', html);
-    if ((user_is_patient && errors_patient === '✔️') && (!user_is_patient && errors_medic === '✅' )) document.body.insertAdjacentHTML('beforeend', html);
 
-    
-    
+    // if (user_is_patient && errors_patient === '✔️') document.body.insertAdjacentHTML('beforeend', html);
+    // if ((user_is_patient && errors_patient === '✔️') && (!user_is_patient && errors_medic === '✅')) document.body.insertAdjacentHTML('beforeend', html);
 </script>
 <?php
 if ($user_is_patient) {

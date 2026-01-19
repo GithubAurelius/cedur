@@ -79,7 +79,6 @@ if (!$groesse) $groesse = get_form_field($db, $form_data_a[$_SESSION['param']['p
 $diagnosis =  $form_data_a[$_SESSION['param']['diagnosis']];
 $gender = $form_data_a[$_SESSION['param']['geschlecht']];
 
-
 $errors_patient = $form_data_a[101] ?? "";
 $errors_medic   = $form_data_a[102] ?? "";
 
