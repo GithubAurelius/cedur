@@ -14,6 +14,7 @@ if (!empty($prepare_page)) {
     $data_def_a['desc_a']['F_10020040'] = 'Medikament';
     $data_def_a['desc_a']['F_10020050'] = 'Start';
     $data_def_a['desc_a']['F_10020060'] = 'Stop';
+    $data_def_a['desc_a']['F_10020085'] = 'Dosierung';
 } else {
 }
 
