@@ -1,25 +1,25 @@
 <?php
 
-if ($_SESSION['m_uid'] == 2025091416255056){
-    $temp_a = [];
-    $query = "SELECT fcid,usergroup FROM forms_10005 WHERE fid=100 AND fcont='{\"FF_0\":-1}'";
-    $stmt = $db->prepare($query);
-    $stmt->execute();
-    $temp_a = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // echo "<pre>"; echo print_r($temp_a); echo "</pre>";
-    foreach ($temp_a as $key => $fcid_a) { 
-        echo $fcid_a['fcid']." ".$fcid_a['usergroup']."<br>"; 
-        $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 101, '✔️', ".$fcid_a['usergroup'].");";
-        $stmt = $db->prepare($query);
-        $stmt->execute();
-        $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 102, '✅', ".$fcid_a['usergroup'].");";
-        $stmt = $db->prepare($query);
-        $stmt->execute();    
-    }
-    // UPDATE `forms_10005` SET fcWHERE fid=100 AND fcont="✓ (OK)"
-    // foreach ($arr as $key => $val) { echo "$key : $val <br>"; }
-    exit;
-}
+// if ($_SESSION['m_uid'] == 12025091416255056){
+//     $temp_a = [];
+//     $query = "SELECT fcid,usergroup FROM forms_10005 WHERE fid=100 AND fcont='{\"FF_0\":-1}'";
+//     $stmt = $db->prepare($query);
+//     $stmt->execute();
+//     $temp_a = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     // echo "<pre>"; echo print_r($temp_a); echo "</pre>";
+//     foreach ($temp_a as $key => $fcid_a) { 
+//         echo $fcid_a['fcid']." ".$fcid_a['usergroup']."<br>"; 
+//         $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 101, '✔️', ".$fcid_a['usergroup'].");";
+//         $stmt = $db->prepare($query);
+//         $stmt->execute();
+//         $query = "INSERT IGNORE INTO forms_10005 (fcid, fid, fcont, usergroup) VALUES (".$fcid_a['fcid'].", 102, '✅', ".$fcid_a['usergroup'].");";
+//         $stmt = $db->prepare($query);
+//         $stmt->execute();    
+//     }
+//     // UPDATE `forms_10005` SET fcWHERE fid=100 AND fcont="✓ (OK)"
+//     // foreach ($arr as $key => $val) { echo "$key : $val <br>"; }
+//     exit;
+// }
 
 function get_visits($db, $pid){ // identify first visit for one-time-fields
     $query = "SELECT fcid FROM forms_10005 WHERE fid=90 AND fcont=:pid ORDER BY fcid;";
