@@ -69,12 +69,14 @@ if (!empty($prepare_page)) {
     const winbox_num = <?= json_decode($data_def_a['num']) ?? 59595959 ?>;
     
         const outer_wb_add = window.top.findClosestWinboxFromIframe(window.frameElement);
+        if (outer_wb_add){
             outer_wb_add.winbox.setIcon(window.top.miq_root_path + 'img/person.svg');
-        const winbox_height = parent.window.innerHeight - window.top.men_height;
-        const wh = winbox_height * wb_height;
-        const ww = parent.window.innerWidth * wb_width
-        if (!window.top.win_boxes?.[winbox_num]?.pos) {
-            outer_wb_add.winbox.resize(ww, wh);
-            outer_wb_add.winbox.move(0, parent.window.innerHeight - wh);
+            const winbox_height = parent.window.innerHeight - window.top.men_height;
+            const wh = winbox_height * wb_height;
+            const ww = parent.window.innerWidth * wb_width
+            if (!window.top.win_boxes?.[winbox_num]?.pos) {
+                outer_wb_add.winbox.resize(ww, wh);
+                outer_wb_add.winbox.move(0, parent.window.innerHeight - wh);
+            }
         }
 </script>
