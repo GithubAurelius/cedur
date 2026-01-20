@@ -127,9 +127,7 @@
     tab_a[tab_key]['iframe'] = '_Biologika';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Biologika%'],
-        ["10020021", "", '!=KE']
-
+        ["10020020", "", 'Biologika'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -138,8 +136,7 @@
     tab_a[tab_key]['iframe'] = '_Immunsenker';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Immunsenker%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Immunsenker'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -148,8 +145,7 @@
     tab_a[tab_key]['iframe'] = '_Mesalazin';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Mesalazin%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Mesalazine'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -158,8 +154,7 @@
     tab_a[tab_key]['iframe'] = '_Budesonid';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Budesonid%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Budesonid'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -168,8 +163,7 @@
     tab_a[tab_key]['iframe'] = '_Cortison';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Cortison%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Cortison%'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -178,8 +172,7 @@
     tab_a[tab_key]['iframe'] = '_Diarrhoe';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Diarrhoe%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Anti-Durchfall Mittel%'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -188,8 +181,7 @@
     tab_a[tab_key]['iframe'] = '_Schmerzmittel';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Schmerzmittel%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", 'Schmerzmittel'],
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
 
@@ -198,11 +190,12 @@
     tab_a[tab_key]['iframe'] = '_Andere';
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
-        ["10020020", "", '%Andere%'],
-        ["10020021", "", '!=KE']
+        ["10020020", "", '%ndere%'],
+        
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
-
+  
+    // ["10020021", "", '!=KE']
 
     // UPDATE forms_10020 SET fcont = 'KE' WHERE fid=10020021 AND fcid IN (SELECT fcid FROM `forms_10020` WHERE fid = 10020080 AND fcont = 'keine Einnahme');
 
