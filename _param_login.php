@@ -16,10 +16,10 @@ require_once $_SESSION['INI-PATH'];
 if (!is_dir(MIQ_DATA . $_SESSION["PROJECT"] . "/db/"))  mkdir(MIQ_DATA . $_SESSION["PROJECT"] . "/db/", 0777, true);
 if (!is_dir(UPLOAD_BASE))                               mkdir(UPLOAD_BASE, 0777, true);
 if (!is_dir(UPLOAD_BASE . UPLOAD_SUB_PATH))             mkdir(UPLOAD_BASE . UPLOAD_SUB_PATH, 0777, true);
-if (!is_dir(TEMP))      mkdir(TEMP, 0777, true);
-if (!is_dir(PLOG))      mkdir(PLOG, 0777, true);
-if (!is_dir(STATS))     mkdir(STATS, 0777, true);
-if (!is_dir(EXPORT))    mkdir(EXPORT, 0777, true);
+// if (!is_dir(TEMP))      mkdir(TEMP, 0777, true);
+// if (!is_dir(PLOG))      mkdir(PLOG, 0777, true);
+// if (!is_dir(STATS))     mkdir(STATS, 0777, true);
+// if (!is_dir(EXPORT))    mkdir(EXPORT, 0777, true);
 
-require_once MIQ_ROOT . "modules/patches/update_db.php";
+// require_once MIQ_ROOT . "modules/patches/update_db.php";
 require_once MIQ_ROOT_PHP . "login_base.php";
