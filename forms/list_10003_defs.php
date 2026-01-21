@@ -33,13 +33,13 @@ if (!empty($prepare_page)) {
         outer_wb_add.winbox.move(0, parent.window.innerHeight - wh);
     }
 
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const buttons = document.querySelectorAll("button[id^='E_']"); 
-    //     buttons.forEach(function(btn) {
-    //         btn.addEventListener("click", function() {
-    //             const visite_wb = parent.document.getElementById('winbox-' + window.top.win_boxes2form['Visite']);
-    //             if (visite_wb) visite_wb.winbox.close();
-    //         });
-    //     });
-    // });
+    document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll("button[id^='E_']"); 
+        buttons.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                const visite_wb = parent.document.getElementById('winbox-' + window.top.win_boxes2form['Visite']);
+                if (visite_wb) visite_wb.winbox.close();
+            });
+        });
+    });
 </script>
