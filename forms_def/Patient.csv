@@ -17,8 +17,14 @@ id;type;name;options;required
     92;text_1_col_30;Cedur-Nr.|Automatikfeld;;
     ;info_100;<hr>;
     10003110;radio_cb;Biobank Aufklärung unterschrieben;;
-    10003120;select_mt;Biomaterial;Blut|Stuhl|Gewebe|Urin|Speichelprobe;
+    ;start_block;Ja;10003110;
+        ;start_row;;
+            10003120;select_mt;Biomaterial;Blut|Stuhl|Gewebe|Urin|Speichelprobe;
+        ;end_row;; 
+    ;stop_block;;
+    10003017;date;Patient verstorben |Datum;;
     ;info_100;<hr>;
+    
     999467;info_100;;
 
 ;stop_fieldset;;
