@@ -89,8 +89,8 @@
 
 
         function reloadVisiteIframe() {
-            const patient_winbox = parent.window.document.getElementById('winbox-21');
-            const visite_winbox = parent.window.document.getElementById('winbox-22');
+            const patient_winbox = parent.window.document.getElementById('winbox-21'); // window.top.win_boxes2form['Patienten-Liste']
+            const visite_winbox = parent.window.document.getElementById('winbox-22');  // window.top.win_boxes2form['Patient']
             // console.log(patient_winbox);
             if (patient_winbox) {
                 const patient_winbox_iframe = patient_winbox.querySelector('iframe');
@@ -106,13 +106,6 @@
             }
         }
 
-        // Bei Änderung des Datums erneut aufrufen
-        // visite_date.addEventListener('change', () => {
-        //     // Aber nur, wenn Datensatz angelegt wird oder bereits angelegt wurde und Datum noch veränderbar ist
-        //     if (!<?= $param_sent ?>) {
-        //         reloadVisiteIframe();
-        //     }
-        // });
 
         if (<?= $posted ?>) reloadVisiteIframe();
 

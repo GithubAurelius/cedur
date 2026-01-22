@@ -25,9 +25,9 @@
         ></iframe>`;
     img_iframe.style.height = wh-260;
 
-    // Reload opener winbox
-    const opener_wb = parent.document.getElementById('winbox-3');
+    // Reload opener winbox 
+    const opener_wb = parent.document.getElementById('winbox-' + window.top.win_boxes2form['Modul-Liste']);
     const iframe = opener_wb.querySelector("iframe");
     if (<?php echo json_encode($_POST)?>) iframe.contentWindow.location.reload();
-
+    
 </script>

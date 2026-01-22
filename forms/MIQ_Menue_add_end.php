@@ -10,7 +10,7 @@
     outer_wb.winbox.resize('50%', wh);
 
     // Reload opener winbox
-    const opener_wb = parent.document.getElementById('winbox-4');
+    const opener_wb = parent.document.getElementById('winbox-' + window.top.win_boxes2form['Menue-Liste']); 
     const iframe = opener_wb.querySelector("iframe");
     if (<?php echo json_encode($_POST)?>) iframe.contentWindow.location.reload();
     
