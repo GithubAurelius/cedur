@@ -18,7 +18,7 @@ id;type;name;options;required
     ;info_100;<hr>;
     10003110;radio_cb;Biobank Aufklärung unterschrieben;;
     ;start_block;Ja;10003110;
-        ;start_row;;
+        ;start_row;; 
             10003120;select_mt;Biomaterial;Blut|Stuhl|Gewebe|Urin|Speichelprobe;
         ;end_row;; 
     ;stop_block;;
