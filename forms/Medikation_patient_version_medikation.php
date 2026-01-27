@@ -163,7 +163,7 @@ function build_med_block($fcid, $med_data_a)
     $html_str .= "        
         </div>
         <div class='col_23 back_img'>
-           <select  id='FF_10020080_" . $fcid . "' name='FF_10020080_" . $fcid . "'><option value=''></option></select>
+           <select id='FF_10020080_" . $fcid . "' name='FF_10020080_" . $fcid . "'><option value=''></option></select>
         </div>
         <div class='col_23'>
             <select id='FF_10020060_" . $fcid . "' name='FF_10020060_" . $fcid . "'></select>
@@ -377,8 +377,6 @@ if (count($fcid_a)) {
         .med_buttons:hover {
             background-color: lightpink;
         }
-
-
 
         .col_23 {
             width: 23%;

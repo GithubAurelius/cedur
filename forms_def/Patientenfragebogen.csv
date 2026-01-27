@@ -147,8 +147,8 @@ id;type;name;options;required
         ;end_row;; 
     ;stop_block;;
      
-    102411;select;Haben Sie Probleme einzuschlafen?<br><font style='color:gray'>(0 für kein Problem bis 10 für schlimmste Probleme)?</font>;0|1|2|3|4|5|6|7|8|9|10;
-    102412;select;Haben Sie Probleme die Nacht durchzuschlafen?<br><font style='color:gray'>(0 für kein Problem bis 10 für schlimmste Schlafstörungen)?</font>;0|1|2|3|4|5|6|7|8|9|10;
+    102411;select;Haben Sie Probleme einzuschlafen?<br><font style='color:gray'>(0 für kein Problem bis 10 für schlimmste Probleme)</font>;0|1|2|3|4|5|6|7|8|9|10;
+    102412;select;Haben Sie Probleme die Nacht durchzuschlafen?<br><font style='color:gray'>(0 für kein Problem bis 10 für schlimmste Schlafstörungen)</font>;0|1|2|3|4|5|6|7|8|9|10;
 
     103500;number;[CEDUR3.Allgemein.CDAI009]<span id='C_103500'></span>Wie viele flüssige / breiige Stuhlgänge (Bei Stoma: Beutelentleerungen) hatten Sie in der vergangenen Woche durchschnittlich pro Tag?;0|50|0.1;required
     103505;radio_cb;<span id='C_103505'></span>[CEDUR3.lebensqualitaet.CACP_8]Nehmen Sie regelmäßig Durchfallmedikamente?;Ja|Nein;required

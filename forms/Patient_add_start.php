@@ -235,9 +235,8 @@ if ($ppid && $pgender && $pyear  && $pdiagnosis) {
         <button type="button" class="tab-button" data-tab="tab3">Befragung</button>
         <button type="button" class="tab-button" data-tab="tab4">Untersuchung</button>
         <button type="button" class="tab-button" data-tab="tab5">Labor</button>
-        <button type="button" class="tab-button" data-tab="tab6">Medikation</button>
-        <button type="button" class="tab-button" data-tab="tab7">Nebenwirkungen</button>
-
+        <button type="button" class="tab-button" data-tab="tab6">Vormedikation</button>
+        <button type="button" class="tab-button" data-tab="tab7">Medikation</button>
     </div>
     <div class="tab-content active" id="tab1">
         <iframe id='_visite' style='width:100%; border:none; padding:0; margin:0;'></iframe>
@@ -255,10 +254,10 @@ if ($ppid && $pgender && $pyear  && $pdiagnosis) {
         <iframe id='_labor' style='width:100%; border:none; padding:0; margin:0;'></iframe>
     </div>
     <div class="tab-content" id="tab6">
-        <iframe id='_medikation' style='width:100%; border:none; padding:0; margin:0;'></iframe>
+        <iframe id='_vormedikation' style='width:100%; border:none; padding:0; margin:0;'></iframe>
     </div>
     <div class="tab-content" id="tab7">
-        <iframe id='_nebenwirkung' style='width:100%; border:none; padding:0; margin:0;'></iframe>
+        <iframe id='_medikation' style='width:100%; border:none; padding:0; margin:0;'></iframe>
     </div>
 
 </div>

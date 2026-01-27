@@ -328,20 +328,30 @@ if ($_POST) {
     url_params.set('form', 'Medikation');
     url_params.set('form_name', 'Medikation');
     url_params.set('fid_str', '10005020,10020021,10020050,10020020,10020040,10020080,10020060,10020085,10020070');
-    // url_params_medikation = url_params.toString();
+    url_params.set('query_global_str', JSON.stringify([["90", "", pid], ["10020021", "", '%V%']])); //
     tab_a['tab6'] = {};
-    tab_a['tab6']['iframe'] = '_medikation';
+    tab_a['tab6']['iframe'] = '_vormedikation';
     tab_a['tab6']['url_params'] = url_params.toString();
 
-    url_params.set('fg', '10050');
-    url_params.set('form', 'Nebenwirkung');
-    url_params.set('form_name', 'Nebenwirkung');
-    url_params.set('fid_str', '10050020,10050040,10050050,10050070,10050075,10050080,10050090,10050100,10050110,10050120,10050130,10050140,10050150,10050160,10050170');
-    // url_params_nebenw = url_params.toString();
+    url_params.set('fg', '10020');
+    url_params.set('form', 'Medikation');
+    url_params.set('form_name', 'Medikation');
+    url_params.set('fid_str', '10005020,10020021,10020050,10020020,10020040,10020080,10020060,10020085,10020070');
+    url_params.set('query_global_str', JSON.stringify([["90", "", pid]]));
     tab_a['tab7'] = {};
-    tab_a['tab7']['iframe'] = '_nebenwirkung';
-    tab_a['tab7']['url_params'] = url_params.toString();
+    tab_a['tab7']['iframe'] = '_medikation';
+    tab_a['tab7']['url_params'] = url_params.toString();  
+    
+    // url_params.set('fg', '10050');
+    // url_params.set('form', 'Nebenwirkung');
+    // url_params.set('form_name', 'Nebenwirkung');
+    // url_params.set('fid_str', '10050020,10050040,10050050,10050070,10050075,10050080,10050090,10050100,10050110,10050120,10050130,10050140,10050150,10050160,10050170');
+    // // url_params_nebenw = url_params.toString();
+    // tab_a['tab7'] = {};
+    // tab_a['tab7']['iframe'] = '_nebenwirkung';
+    // tab_a['tab7']['url_params'] = url_params.toString();
 
+    
 
 
     const tabButtons = document.querySelectorAll('.tab-button');
