@@ -55,4 +55,4 @@ $med_given_a = array_flip($med_given_a);
 // Index zurücksetzen
 $med_given_a = array_values($med_given_a); // Auswahl für die Medikatinsliste
 $med_val = $form_data_a[10050180] ?? "";   // Aktuell im Datensatz asugewähltes Medikament
-echo "<pre>"; echo print_r($med_given_a); echo "</pre>".$med_val;
+// echo "<pre>"; echo print_r($med_given_a); echo "</pre>".$med_val;
