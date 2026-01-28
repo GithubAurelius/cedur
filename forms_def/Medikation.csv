@@ -17,7 +17,7 @@ id;type;name;options;required
 
 900202200;start_fieldset;Medikation;
     ;col_type_switch;col;
-    10020020;select_col_30_30_30;Medikamenten-Gruppe|Bitte wählen;Anti-Durchfall Mittel|Biologika|Budesonid|Cortison-Präparate|Immunsenker|Mesalazine|Schmerzmittel|andere Medikamente;required
+    10020020;select_col_30_30_30;Medikamenten-Gruppe|Bitte wählen;Anti-Durchfall Mittel|Biologika|Budesonid|Cortison-Präparate|Immunsenker|Mesalazine|Schmerzmittel|Andere Medikamente;required
     10020040;select_col_30_30_30;Medikament Bezeichnung;;required
     10020080;select_col_30_30_30;Schema;;required
     10020085;select_col_30_30_30;Dosierung (nur Infliximab);5mg/kg|7,5mg/kg|10mg/kg|unbekannt;required

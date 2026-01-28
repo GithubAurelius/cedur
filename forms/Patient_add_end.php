@@ -294,32 +294,28 @@ if ($_POST) {
     tab_a['tab1']['iframe'] = '_visite';
     tab_a['tab1']['url_params'] = url_params.toString();
 
-    url_params.delete("work_mode");
-
+    
     url_params.set('fg', '10010');
+    url_params.set('work_mode', '');
     url_params.set('form', 'Patientenfragebogen');
     url_params.set('form_name', 'Patientenfragebogen');
     url_params.set('fid_str', '110200,110500,110600,110700,111000,111100,110511');
-    // url_params_labor = url_params.toString();
     tab_a['tab5'] = {};
     tab_a['tab5']['iframe'] = '_labor';
     tab_a['tab5']['url_params'] = url_params.toString();
 
     url_params.set('fid_str', '102300,102200,102600,102700,102705,102800,102815,108500');
-    // url_params_befragung = url_params.toString();
     tab_a['tab3'] = {};
     tab_a['tab3']['iframe'] = '_patientenbefragung';
     tab_a['tab3']['url_params'] = url_params.toString();
 
     url_params.set('fid_str', '102000,103700,110905,104800,115700,115800,116000');
-    // url_params_untersuchung = url_params.toString();
     tab_a['tab4'] = {};
     tab_a['tab4']['iframe'] = '_untersuchung';
     tab_a['tab4']['url_params'] = url_params.toString();
 
 
     url_params.set('fid_str', '109001,109002,109003,109004,109005,109007,109008');
-    // url_params_scores = url_params.toString();
     tab_a['tab2'] = {};
     tab_a['tab2']['iframe'] = '_scores';
     tab_a['tab2']['url_params'] = url_params.toString();
@@ -333,6 +329,7 @@ if ($_POST) {
     tab_a['tab6']['iframe'] = '_vormedikation';
     tab_a['tab6']['url_params'] = url_params.toString();
 
+   
     url_params.set('fg', '10020');
     url_params.set('form', 'Medikation');
     url_params.set('form_name', 'Medikation');

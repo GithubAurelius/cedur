@@ -374,8 +374,6 @@ if (count($fcid_a)) {
             /* Farbe nach Bedarf anpassen */
         }
 
-
-
         .back_img {
             background-image: url(../forms/images/ohne_dosis_tr.png);
             background-size: 90px;
