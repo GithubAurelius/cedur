@@ -294,9 +294,9 @@ if ($_POST) {
     tab_a['tab1']['iframe'] = '_visite';
     tab_a['tab1']['url_params'] = url_params.toString();
 
+    url_params.set('work_mode', '');
     
     url_params.set('fg', '10010');
-    url_params.set('work_mode', '');
     url_params.set('form', 'Patientenfragebogen');
     url_params.set('form_name', 'Patientenfragebogen');
     url_params.set('fid_str', '110200,110500,110600,110700,111000,111100,110511');

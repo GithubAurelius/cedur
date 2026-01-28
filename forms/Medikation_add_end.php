@@ -58,6 +58,19 @@
     // Initiales Füllen basierend auf bereits gesetztem Wirkstoffgruppe
     updateSelect2(savedMedication, savedDose);
 
+    //  28.01.2026 Die zentrale Funktion um auch Werte anzuzeiegen, die nicht in den OPTIONS sind
+    function addMissingOption(elementId, value) {
+        const select = document.getElementById(elementId);
+        if (value && select && select.value.trim() === "") {
+            // console.log(`Adding missing value to ${elementId}: ${value}`);
+            // Nutzt den "Option"-Konstruktor: new Option(text, value, defaultSelected, selected)
+            select.add(new Option(value, value, true, true));
+        }
+    }
+    // Die Funktion für dieFelder aufrufen 
+    addMissingOption('FF_10020040', <?= json_encode($form_data_a[10020040] ?? '') ?>);
+    addMissingOption('FF_10020080', <?= json_encode($form_data_a[10020080] ?? '') ?>);
+    addMissingOption('FF_10020085', <?= json_encode($form_data_a[10020085] ?? '') ?>);
 
     let param_a = {};
     param_a['sqlstr'] = "F_<?php echo $_SESSION['param']['pid'] ?> = '<?php echo $form_data_a[$_SESSION['param']['pid']]; ?>'";
@@ -191,10 +204,10 @@
     url_params.set('query_global_str', JSON.stringify([
         ["90", "", param_a['pid']],
         ["10020020", "", '%ndere%'],
-        
+
     ]));
     tab_a[tab_key]['url_params'] = url_params.toString();
-  
+
     // ["10020021", "", '!=KE']
 
     // UPDATE forms_10020 SET fcont = 'KE' WHERE fid=10020021 AND fcid IN (SELECT fcid FROM `forms_10020` WHERE fid = 10020080 AND fcont = 'keine Einnahme');
@@ -404,5 +417,4 @@
             this.value = ""; // ✅ Feld leeren
         }
     });
-
 </script>
