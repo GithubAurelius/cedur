@@ -112,13 +112,14 @@ function get_medication($db, $pid)
             if ($fcont == 'V' || $fcont == 'MP (V)') $pre_med_fcid_a[$val_a['fcid']] = 1;
         }
     }
-    
-    if ($_SESSION['m_uid'] == 1) {}
-    
+
+    if ($_SESSION['m_uid'] == 1) {
+    }
+
     $fcid_a = [];
     $med2fid_a = [];
     foreach ($med_a as $key => $data_a) {
-        if ( !isset($pre_med_fcid_a[$data_a['fcid']])){
+        if (!isset($pre_med_fcid_a[$data_a['fcid']])) {
             $med2fid_a[$data_a['fcid']][$data_a['fid']]  = $data_a;
             $fcid_a[$data_a['fcid']] = 1;
         }
@@ -146,20 +147,20 @@ function build_med_block($fcid, $med_data_a)
         <?php  $fcid = (int) (date('YmdHis') . substr(microtime(true), 11, 2));  ?>
         <input type='hidden' id='fcid' name='fcid' value='" . $fcid . "'>
         <div class='col_23'>
-            <input" . $readonly . " type='text' id='FF_10020040_" . $fcid . "' name='FF_10020040_" . $fcid . "' list='med_suggestions' placeholder='Medikament eingeben' value='" . ($med_data_a[$fcid][10020040] ?? '') . "'>
+            <div class='select-wrapper' style='display: flex;flex-wrap: nowrap;'><input" . $readonly . " type='text' id='FF_10020040_" . $fcid . "' name='FF_10020040_" . $fcid . "' list='med_suggestions' placeholder='Medikament eingeben' value='" . ($med_data_a[$fcid][10020040] ?? '') . "'></div>
         </div>
         <div class='col_23'>";
     $date_val = json_encode($med_data_a[$fcid][10020050] ?? '');
-    if ($date_val) $date_val = str_replace('"','',$date_val);
+    if ($date_val) $date_val = str_replace('"', '', $date_val);
     // echo "<br>".$date_val ;
     if (!$date_val)
         $html_str .= "        
-                <select" . $disabled . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "'></select>
+                <select " . $disabled . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "'></select>
                 <script>
                     fillYearSelect('FF_10020050_" . $fcid . "', 1950, 'this_year', true, false, " . $date_val . ");
                 </script>";
     else $html_str .= "        
-                <input type='text' " . $readonly . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "' value='".$date_val."'>";
+                <input type='text' " . $readonly . " id='FF_10020050_" . $fcid . "' name='FF_10020050_" . $fcid . "' value='" . $date_val . "'>";
     $html_str .= "        
         </div>
         <div class='col_23 back_img'>
@@ -353,6 +354,34 @@ if (count($fcid_a)) {
     <script src="<?php echo MIQ_PATH ?>/modules/form_base/forms.js?RAND=<?php echo random_bytes(5); ?>"></script>
     <script src="<?php echo $_SESSION['WEBROOT'] . $_SESSION['PROJECT_PATH'] . 'forms/' ?>Medikation_defs.js?RAND=<?php echo random_bytes(5); ?>"></script>
     <style>
+        .select-wrapper {
+            position: relative;
+            display: inline-block;
+            /* Verhindert den Umbruch (wie zuvor besprochen) */
+        }
+
+        .select-wrapper::after {
+            content: "▾";
+            font-size: 26px;
+            position: absolute;
+            right: 2px;
+            /* Abstand zum linken Rand */
+            top: 50%;
+            /* Vertikale Zentrierung */
+            transform: translateY(-50%);
+            /* Exakte vertikale Mitte */
+            pointer-events: none;
+            color: silver;
+            /* Farbe nach Bedarf anpassen */
+        }
+
+        .select-wrapper input {
+            padding-left: 30px;
+            /* WICHTIG: Platz schaffen, damit der Text nicht unter dem Icon klebt */
+            box-sizing: border-box;
+            /* Damit das Padding die Breite nicht zerschießt */
+        }
+
         .back_img {
             background-image: url(../forms/images/ohne_dosis_tr.png);
             background-size: 90px;

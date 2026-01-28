@@ -9,7 +9,7 @@ const val_med_select2_a = [
     ["Immunsenker", "Azathioprin|Mercaptopurin|Methotrexat|Puri-Nethol|Jyseleca (Filgotinib)|Rinvoq (Upadacitinib)|Velsipity (Etrasimod)|Xeljanz (Tofacitinib)|Zeposia (Ozanimod)|andere Immunsenker"],
     ["Mesalazine", "Asacol (Mesalazin)|Claversal (Mesalazin)|Mezavant (Mesalazin)|Pentasa (Mesalazin)|Salofalk (Mesalazin)|Sulfasalazin (Mesalazin)|Mesalazine rektal|Mesalazine oral|andere Mesalazine"],
     ["Schmerzmittel", "Ibuprofen|Diclofenac|Paracetamol|Acetylsalicylsäure (ASS)|andere Schmerzmittel"],
-    ["andere Medikamente", "Feraccru (Eisenpräparat)|Ferrosanol (Eisenpräparat)|Eisen als Infusion|Eisen als Spritze|Eisen als Infusion oder Spritze|Eisentabletten|Eisentropfen|Cholestagel (Gallensäurebinder)|Colestyramin (Gallensäurebinder)|Lipocol (Gallensäurebinder)|Omeprazol (Magenschutz)|Pantozol (Magenschutz)|Vitamin B12|Vitamin B6|Vitamin D|Vitamin D plus Calcium|andere Medikamente"]
+    ["Andere Medikamente", "Feraccru (Eisenpräparat)|Ferrosanol (Eisenpräparat)|Eisen als Infusion|Eisen als Spritze|Eisen als Infusion oder Spritze|Eisentabletten|Eisentropfen|Cholestagel (Gallensäurebinder)|Colestyramin (Gallensäurebinder)|Lipocol (Gallensäurebinder)|Omeprazol (Magenschutz)|Pantozol (Magenschutz)|Vitamin B12|Vitamin B6|Vitamin D|Vitamin D plus Calcium|andere Medikamente"]
 ];
 
 // 3. Ebene: Dosis
