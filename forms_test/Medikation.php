@@ -161,8 +161,8 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Medikamenten-Gruppe</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
-                        <span id='isp_FF_10020020'></span>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020020' ></span>
                     </div>
                     <div class='col_30'>
                         <select required id='FF_10020020' name='FF_10020020'  onchange='follow_select(this)'><option value=''>Bitte wählen</option><option value='Anti-Durchfall Mittel' <?php if (($form_data_a[10020020] ?? '') == 'Anti-Durchfall Mittel') echo 'selected'; ?>>Anti-Durchfall Mittel</option><option value='Biologika' <?php if (($form_data_a[10020020] ?? '') == 'Biologika') echo 'selected'; ?>>Biologika</option><option value='Budesonid' <?php if (($form_data_a[10020020] ?? '') == 'Budesonid') echo 'selected'; ?>>Budesonid</option><option value='Cortison-Präparate' <?php if (($form_data_a[10020020] ?? '') == 'Cortison-Präparate') echo 'selected'; ?>>Cortison-Präparate</option><option value='Immunsenker' <?php if (($form_data_a[10020020] ?? '') == 'Immunsenker') echo 'selected'; ?>>Immunsenker</option><option value='Mesalazine' <?php if (($form_data_a[10020020] ?? '') == 'Mesalazine') echo 'selected'; ?>>Mesalazine</option><option value='Schmerzmittel' <?php if (($form_data_a[10020020] ?? '') == 'Schmerzmittel') echo 'selected'; ?>>Schmerzmittel</option><option value='Andere Medikamente' <?php if (($form_data_a[10020020] ?? '') == 'Andere Medikamente') echo 'selected'; ?>>Andere Medikamente</option></select>
@@ -171,8 +171,8 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Medikament Bezeichnung</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
-                        <span id='isp_FF_10020040'></span>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020040' ></span>
                     </div>
                     <div class='col_30'>
                         <select required id='FF_10020040' name='FF_10020040'  onchange='follow_select(this)'><option value=''></option><option value='' <?php if (($form_data_a[10020040] ?? '') == '') echo 'selected'; ?>></option></select>
@@ -181,8 +181,8 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Schema</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
-                        <span id='isp_FF_10020080'></span>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020080' ></span>
                     </div>
                     <div class='col_30'>
                         <select required id='FF_10020080' name='FF_10020080'  onchange='follow_select(this)'><option value=''></option><option value='' <?php if (($form_data_a[10020080] ?? '') == '') echo 'selected'; ?>></option></select>
@@ -191,8 +191,8 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Dosierung (nur Infliximab)</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
-                        <span id='isp_FF_10020085'></span>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020085' ></span>
                     </div>
                     <div class='col_30'>
                         <select required id='FF_10020085' name='FF_10020085'  onchange='follow_select(this)'><option value=''></option><option value='5mg/kg' <?php if (($form_data_a[10020085] ?? '') == '5mg/kg') echo 'selected'; ?>>5mg/kg</option><option value='7,5mg/kg' <?php if (($form_data_a[10020085] ?? '') == '7,5mg/kg') echo 'selected'; ?>>7,5mg/kg</option><option value='10mg/kg' <?php if (($form_data_a[10020085] ?? '') == '10mg/kg') echo 'selected'; ?>>10mg/kg</option><option value='unbekannt' <?php if (($form_data_a[10020085] ?? '') == 'unbekannt') echo 'selected'; ?>>unbekannt</option></select>
@@ -201,7 +201,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Einnahme-Start</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
+                    <div class='col_30' style='height:24px; color:gray;'>
                         <span id='isp_FF_10020050'></span>
                     </div>
                     <div class='col_30'>
@@ -211,7 +211,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Einnahme-Stop</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
+                    <div class='col_30' style='height:24px; color:gray;'>
                         <span id='isp_FF_10020060'></span>
                     </div>
                     <div class='col_30'>
@@ -221,8 +221,8 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     <div class='col_30'>
                         <div class='desc_f' >Absetzungsgrund</div>
                     </div>
-                    <div class='col_30' style='color:gray'>
-                        <span id='isp_FF_10020070'></span>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020070' ></span>
                     </div>
                     <div class='col_30'>
                         <select  id='FF_10020070' name='FF_10020070'  onchange='follow_select(this)'><option value=''></option><option value='Nebenwirkungen' <?php if (($form_data_a[10020070] ?? '') == 'Nebenwirkungen') echo 'selected'; ?>>Nebenwirkungen</option><option value='Hat nicht gewirkt' <?php if (($form_data_a[10020070] ?? '') == 'Hat nicht gewirkt') echo 'selected'; ?>>Hat nicht gewirkt</option><option value='Hat erst gewirkt, dann aber die Wirkung verloren' <?php if (($form_data_a[10020070] ?? '') == 'Hat erst gewirkt, dann aber die Wirkung verloren') echo 'selected'; ?>>Hat erst gewirkt, dann aber die Wirkung verloren</option><option value='Mein eigener Wunsch' <?php if (($form_data_a[10020070] ?? '') == 'Mein eigener Wunsch') echo 'selected'; ?>>Mein eigener Wunsch</option><option value='Es ging mir gut (Remission)' <?php if (($form_data_a[10020070] ?? '') == 'Es ging mir gut (Remission)') echo 'selected'; ?>>Es ging mir gut (Remission)</option><option value='Operation' <?php if (($form_data_a[10020070] ?? '') == 'Operation') echo 'selected'; ?>>Operation</option><option value='Schwangerschaft' <?php if (($form_data_a[10020070] ?? '') == 'Schwangerschaft') echo 'selected'; ?>>Schwangerschaft</option><option value='Andere' <?php if (($form_data_a[10020070] ?? '') == 'Andere') echo 'selected'; ?>>Andere</option></select>

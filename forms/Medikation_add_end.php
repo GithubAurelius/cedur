@@ -303,7 +303,6 @@
     feldIds.forEach(id => {
         const sel = document.getElementById("FF_" + id);
         if (!sel) return; // Element existiert nicht
-
         // Span erstellen (falls noch nicht vorhanden)
         let span = document.getElementById("isp_FF_" + id);
         if (!span) {
@@ -317,11 +316,11 @@
         span.textContent = <?= json_encode($form_data_a) ?>[id] || "";
         // Select inline-block setzen, Parent nowrap
         sel.style.display = "inline-block";
-        sel.parentNode.style.whiteSpace = "nowrap";
+        span.style.fontSize = "12px";
         // Optional: Span beim Ändern aktualisieren
-        sel.addEventListener("change", function() {
-            span.textContent = sel.tagName === 'SELECT' ? sel.options[sel.selectedIndex].text : sel.value;
-        });
+        // sel.addEventListener("change", function() {
+        //     span.textContent = sel.tagName === 'SELECT' ? sel.options[sel.selectedIndex].text : sel.value;
+        // });
     });
 
     const el = document.getElementById("FS_900202200");
