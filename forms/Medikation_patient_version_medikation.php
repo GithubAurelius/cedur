@@ -365,7 +365,6 @@ if (count($fcid_a)) {
             font-size: 26px;
             position: absolute;
             right: 2px;
-            /* Abstand zum linken Rand */
             top: 50%;
             /* Vertikale Zentrierung */
             transform: translateY(-50%);
@@ -375,12 +374,7 @@ if (count($fcid_a)) {
             /* Farbe nach Bedarf anpassen */
         }
 
-        .select-wrapper input {
-            padding-left: 30px;
-            /* WICHTIG: Platz schaffen, damit der Text nicht unter dem Icon klebt */
-            box-sizing: border-box;
-            /* Damit das Padding die Breite nicht zerschießt */
-        }
+
 
         .back_img {
             background-image: url(../forms/images/ohne_dosis_tr.png);
