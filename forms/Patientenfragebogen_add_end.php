@@ -733,14 +733,20 @@
     if (mmtt >= 101 && mmtt < 111) {
         smiley_png = 'smileyC_new_year.png';
     }
-    if (mmtt >= 111 && mmtt < 301) {
+    if (mmtt >= 111 && mmtt < 213) {
         smiley_png = 'smileyC_winter.png';
     }
-    if (mmtt >= 301 && mmtt < 601) {
-        smiley_png = 'smileyC.png';
+    if (mmtt >= 213 && mmtt < 215) {
+        smiley_png = 'smileyC_valentintag.png';
     }
-    if (mmtt >= 701 && mmtt < 1001) {
-        smiley_png = 'smileyC.png';
+    if (mmtt >= 215 && mmtt < 218) {
+        smiley_png = 'smileyC_fasching.png';
+    }
+    if (mmtt >= 320 && mmtt < 601) {
+        smiley_png = 'smileyC_fruehling.png';
+    }
+    if (mmtt >= 621 && mmtt < 701) {
+        smiley_png = 'smileyC_fruehling.png';
     }
     if (mmtt >= 1001 && mmtt < 1201) {
         smiley_png = 'smileyC_herbst.png';
@@ -764,7 +770,7 @@
         <div id="smiley-container" onclick="this.style.display = 'None'">
             <center><h1>Alle wichtigen Daten sind vollständig!</h1>
             <h2>Vielen Dank für Ihre Geduld, Mitarbeit und Zeit!</h2>
-            <br><img id='img_smiley' src="../forms/images/` + smiley_png + `" width='100%' alt="Smiley" style='margin-top:-25px'>
+            <br><img id='img_smiley' src="../forms/images/smileyC_king.png" width='100%' alt="Smiley" style='margin-top:-25px'>
             </center>
         </div>
     `;
@@ -777,46 +783,48 @@
     `;
 
 
-    // // Array der zu prüfenden Nummern
-    // const ffNumbers = [
-    //     '117700', '117800', '117900', '118000', '118100', '118200',
-    //     '118300', '118400', '118500', '118600', '118700', '118800', '118900'
-    // ];
+    
+    
+    // Prüfung der Zusatzfelder
 
-    // function areAllFFInputsFilled() {
-    //     return ffNumbers.every(number => {
-    //         const selector = `select[name="FF_${number}"]`;
-    //         const inputElement = document.querySelector(selector);
-    //         // Prüft, ob das Element existiert und der bereinigte Wert nicht leer ist
-    //         return inputElement && inputElement.value.trim() !== '';
-    //     });
-    // }
+    function areAllFFInputsFilled() {
+        return ffNumbers.every(number => {
+            const selector = `select[name="FF_${number}"]`;
+            const inputElement = document.querySelector(selector);
+            // Prüft, ob das Element existiert und der bereinigte Wert nicht leer ist
+            return inputElement && inputElement.value.trim() !== '';
+        });
+    }   
 
-    // ffNumbers.forEach(number => {
-    //     const selector = `select[name="FF_${number}"]`;
-    //     const inputElement = document.querySelector(selector);
-    //     if (inputElement) {
-    //         // Bindet die Prüfung an die Events 'input' (während der Eingabe) und 'change' (beim Verlassen des Feldes)
-    //         // inputElement.addEventListener('input', checkAndReport);
-    //         inputElement.addEventListener('change', checkAndReport);
-    //     }
-    // });
+    const ffNumbers = [
+        '117700', '117800', '117900', '118000', '118100', '118200',
+        '118300', '118400', '118500', '118600', '118700', '118800', '118900'
+    ];
 
-    // // Die Callback-Funktion, die die Prüfung durchführt und das Ergebnis meldet
-    // function checkAndReport() {
-    //     const allFilled = areAllFFInputsFilled();
-    //     console.log("XXX:" + errors);
-    //     if (allFilled) {
-    //         if (errors === 0)
-    //             if (user_is_patient) document.body.insertAdjacentHTML('beforeend', smileyHTML_FACIT);
-    //         return 1;
-    //         // console.log("ALLE Felder sind jetzt vollständig ausgefüllt. ✅");
+    ffNumbers.forEach(number => {
+        const selector = `select[name="FF_${number}"]`;
+        const inputElement = document.querySelector(selector);
+        if (inputElement) {
+            // Bindet die Prüfung an die Events 'input' (während der Eingabe) und 'change' (beim Verlassen des Feldes)
+            // inputElement.addEventListener('input', checkAndReport);
+            inputElement.addEventListener('change', checkAndReport);
+        }
+    });
 
-    //     } else {
-    //         return 0;
-    //         // console.warn("Es fehlen noch Eingaben. ⚠️");
-    //     }
-    // }
+    // Die Callback-Funktion, die die Prüfung durchführt und das Ergebnis meldet
+    function checkAndReport() {
+        const allFilled = areAllFFInputsFilled();
+        if (allFilled) {
+            if (errors === 0)
+                if (user_is_patient) document.body.insertAdjacentHTML('beforeend', smileyHTML_FACIT);
+            return 1;
+            // console.log("ALLE Felder sind jetzt vollständig ausgefüllt. ✅");
+
+        } else {
+            return 0;
+            // console.warn("Es fehlen noch Eingaben. ⚠️");
+        }
+    }
 
 
     // const error_save = document.getElementById('FF_100');
@@ -868,6 +876,8 @@
     //     }
     // }, 200);
 
+
+
     const errors_patient = <?= json_encode($errors_patient) ?>;
     const errors_medic = <?= json_encode($errors_medic) ?>;
 
@@ -880,15 +890,18 @@
         const updateErrorStatus = (actual_errors) => {
             // console.log("Verarbeite Fehlerstand:", actual_errors);
 
-            if (actual_errors === 0) {
+            if (actual_errors === 0) {console.log('OK');
                 fetchDataAndUpdateForm(fcid, 10005, error_fid, error_emo);
                 fetchDataAndUpdateForm(fcid, 10010, error_fid, error_emo);
 
+                console.log("X:",areAllFFInputsFilled());
                 // Smiley nur hinzufügen, wenn er noch nicht da ist
                 if (!document.getElementById('success-smiley')) {
                     document.body.insertAdjacentHTML('beforeend', `<div id="success-smiley">${html}</div>`);
                 }
             } else {
+                const smileyDIV = document.getElementById('success-smiley');
+                if (smileyDIV) smileyDIV.remove();
                 fetchDataAndUpdateForm(fcid, 10005, error_fid, actual_errors);
                 fetchDataAndUpdateForm(fcid, 10010, error_fid, actual_errors);
             }
