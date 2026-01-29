@@ -11,12 +11,12 @@ id;type;name;options;required
     98;text;copy_from;;
     99;text;copy_during (not used);;
     100;text;E;;
-    10020021;text;Typ;;
     10005020;text;Visite;;
 ;end_row;;
 
 900202200;start_fieldset;Medikation;
     ;col_type_switch;col;
+    10020021;select_col_30_30_30;Typ;MP (V)|MP (M);required
     10020020;select_col_30_30_30;Medikamenten-Gruppe|Bitte wählen;Anti-Durchfall Mittel|Biologika|Budesonid|Cortison-Präparate|Immunsenker|Mesalazine|Schmerzmittel|Andere Medikamente;required
     10020040;select_col_30_30_30;Medikament Bezeichnung;;required
     10020080;select_col_30_30_30;Schema;;required

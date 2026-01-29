@@ -142,13 +142,6 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <input data-fg='10020'  type='text' id='FF_100' name='FF_100' value="<?php echo htmlspecialchars($form_data_a[100] ?? ''); ?>" placeholder=''>
                     </div>
 					
-                    <div class='col_a' id='SH_10020021_a'>
-                        <div class='desc_f' >Typ</div>
-                    </div>
-                    <div class='col_b' id='SH_10020021_b'>
-                        <input data-fg='10020'  type='text' id='FF_10020021' name='FF_10020021' value="<?php echo htmlspecialchars($form_data_a[10020021] ?? ''); ?>" placeholder=''>
-                    </div>
-					
                     <div class='col_a' id='SH_10005020_a'>
                         <div class='desc_f' >Visite</div>
                     </div>
@@ -157,6 +150,16 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                     </div>
 				</div>
 			<fieldset id='FS_900202200'><legend>Medikation</legend>
+					
+                    <div class='col_30'>
+                        <div class='desc_f' >Typ</div>
+                    </div>
+                    <div class='col_30' style='height:24px; color:gray;'>
+                        <span id='isp_FF_10020021' ></span>
+                    </div>
+                    <div class='col_30'>
+                        <select required id='FF_10020021' name='FF_10020021'  onchange='follow_select(this)'><option value=''></option><option value='MP (V)' <?php if (($form_data_a[10020021] ?? '') == 'MP (V)') echo 'selected'; ?>>MP (V)</option><option value='MP (M)' <?php if (($form_data_a[10020021] ?? '') == 'MP (M)') echo 'selected'; ?>>MP (M)</option></select>
+                    </div>
 					
                     <div class='col_30'>
                         <div class='desc_f' >Medikamenten-Gruppe</div>

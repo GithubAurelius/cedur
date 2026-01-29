@@ -67,10 +67,22 @@
             select.add(new Option(value, value, true, true));
         }
     }
+
     // Die Funktion für dieFelder aufrufen 
     addMissingOption('FF_10020040', <?= json_encode($form_data_a[10020040] ?? '') ?>);
     addMissingOption('FF_10020080', <?= json_encode($form_data_a[10020080] ?? '') ?>);
     addMissingOption('FF_10020085', <?= json_encode($form_data_a[10020085] ?? '') ?>);
+    addMissingOption('FF_10020021', <?= json_encode($form_data_a[10020021] ?? '') ?>);
+
+    // Leere Option entfernen
+    const typ_select = document.querySelector('[name="FF_10020021"]');
+    const options = typ_select.options;
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value === "" || options[i].text.trim() === "") {
+            typ_select.remove(i);
+            i--; // Index anpassen, da das Array nach dem Löschen kürzer ist
+        }
+    }
 
     let param_a = {};
     param_a['sqlstr'] = "F_<?php echo $_SESSION['param']['pid'] ?> = '<?php echo $form_data_a[$_SESSION['param']['pid']]; ?>'";
