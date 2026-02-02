@@ -167,8 +167,8 @@ if (!$password_ok) {
         <label for='password'><strong>Neues Passwort:</strong></label>
         <input type='password' id='password' name='password' required><br>
         <label for='password_confirm'><strong>Passwort wiederholen:</strong></label>
-        <div id='pw_strength' style='margin-top:6px;font-weight:bold;'></div>
         <input type='password' id='password_confirm' name='password_confirm' required>
+        <div id='pw_strength' style='margin-top:6px;font-weight:bold;'></div>
         <br><button type='submit'>Passwort speichern</button>
     </form>
     ";
