@@ -148,29 +148,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (!$password_ok) {
     echo " 
     <form method='POST'>
-    <h2>Passwort festlegen für '{$ext_id}'</h2>";
+        <h2>Passwort festlegen für '{$ext_id}'</h2>";
 
-    if ($error_message) {
-        echo "<div class='error'>" . $error_message . "</div>";
-    }
+        if ($error_message) {
+            echo "<div class='error'>" . $error_message . "</div>";
+        }
 
-    echo "
-    <div class='rules'>
-        Ihr Passwort muss enthalten:
-        <ul>
-            <li>Mindestens **10 Zeichen**</li>
-            <li>Mindestens **ein Sonderzeichen**</li>
-            <li>Mindestens **eine Zahl**</li>
-            <li>Mindestens **einen Großbuchstaben**</li>
-        </ul>
-    </div>
-    <label for='password'><strong>Neues Passwort:</strong></label>
-    <input type='password' id='password' name='password' required><br>
-
-    <label for='password_confirm'><strong>Passwort wiederholen:</strong></label>
-    <input type='password' id='password_confirm' name='password_confirm' required><br>
-        <button type='submit'>Passwort speichern</button>
+        echo "
+        <div class='rules'>
+            Ihr Passwort muss enthalten:
+            <ul>
+                <li>Mindestens **10 Zeichen**</li>
+                <li>Mindestens **ein Sonderzeichen**</li>
+                <li>Mindestens **eine Zahl**</li>
+                <li>Mindestens **einen Großbuchstaben**</li>
+            </ul>
+        </div>
+        <label for='password'><strong>Neues Passwort:</strong></label>
+        <input type='password' id='password' name='password' required><br>
+        <label for='password_confirm'><strong>Passwort wiederholen:</strong></label>
+        <div id='pw_strength' style='margin-top:6px;font-weight:bold;'></div>
+        <input type='password' id='password_confirm' name='password_confirm' required>
+        <br><button type='submit'>Passwort speichern</button>
     </form>
     ";
 }
-echo "</body></html>";
+?>
+
+<script>
+const pwField = document.getElementById('password');
+const strengthDiv = document.getElementById('pw_strength');
+
+pwField.addEventListener('input', () => {
+    const pw = pwField.value;
+    let score = 0;
+
+    if (pw.length >= 10) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^a-zA-Z0-9\s]/.test(pw)) score++;
+
+    let text = '';
+    let color = '';
+
+    switch (score) {
+        case 0:
+        case 1:
+            text = '❌ sehr schwach';
+            color = 'red';
+            break;
+        case 2:
+            text = '⚠️ schwach';
+            color = 'orange';
+            break;
+        case 3:
+            text = '🟡 gut';
+            color = 'goldenrod';
+            break;
+        case 4:
+            text = '✅ stark';
+            color = 'green';
+            break;
+    }
+
+    strengthDiv.textContent = text;
+    strengthDiv.style.color = color;
+});
+</script>
+
+</body>
+</html>
