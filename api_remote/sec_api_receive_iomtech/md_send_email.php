@@ -95,8 +95,8 @@ try {
     $mail->setFrom($SMTP_USER, 'Ihr Praxisteam');
     $mail->addAddress($email);
     $mail->addBCC('service@cedur.online');
-    // $mail->addBCC('marc@dueffelmeyer.de');
-    // $mail->addBCC('M.Becken@immunodata.de');
+    $mail->addBCC('marc@dueffelmeyer.de');
+    $mail->addBCC('M.Becken@immunodata.de');
 
     // Inhalt
     $link = FD_PASSWORD_SET . "?login=" . urlencode($pseudonym) . "&token=" . urlencode($token);
@@ -106,8 +106,15 @@ try {
     $body .= "Bitte bewahren Sie Ihren Benutzernamen für die Dokumentation gut auf.\nDer Benutzernamen lautet:\n\n{$ext_id}\n\n";
     $body .= "Bitte klicken Sie auf den folgenden Link, um Ihr Passwort festzulegen:\n";
     $body .= $link . "\n\n";
-    $body .= "Der Link ist 48 Stunden gültig.\n\nIhr CEDUR-Praxisteam.\n\nWenn Sie Ihren Benutzernamen verlieren, wenden Sie sich bitte an Ihre Praxis.";
-    
+    $body .= "Der Link ist 48 Stunden gültig.\n\nIhr CEDUR-Praxisteam.";
+    $body .= "\n\n---------------------------------\n";
+    $body .= "Hinweis: Sollten Sie bereits einen Zugang mit Kennwort besitzen, können Sie sich mit dem Benutzernamen und Ihrem Passwort auch direkt unter https://cedur.online/ anmelden.";
+    $body .= "\n\n";
+    $body .= "Wenn Sie Ihren Benutzernamen oder das Passwort verlieren, wenden Sie sich bitte an Ihre Praxis.";
+    $body .= "\n\n---------------------------------\n";
+    $body .= "Diese E-Mail enthält vertrauliche Zugangsdaten. Bitte nicht weiterleiten, sicher aufbewahren und das Passwort nach der ersten Anmeldung ändern. Falls Sie diese E-Mail irrtümlich erhalten haben, informieren Sie bitte den Absender und löschen Sie die Nachricht.";
+
+
     $mail->Subject = $betreff;
     $mail->Body    = $body;
     

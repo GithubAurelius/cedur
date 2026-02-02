@@ -6,7 +6,7 @@ require 'config_connections_local.php';
 
 $pseudonym = $_GET['login'] ?? '';
 $token = $_GET['token'] ?? '';
- 
+
 if (!file_exists(CONFIG_PATH)) {
     error_log("FATAL ERROR: Secret config file not found.");
     http_response_code(500);
@@ -23,7 +23,7 @@ if (empty($pseudonym) || empty($token)) {
 }
 
 $pdo = new PDO('mysql:host=localhost;dbname=cedur', 'cedur_admin', 'Aurel12##33');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);            
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $pdo->prepare("SELECT login_name FROM user_miq WHERE master_uid = ?");
 $stmt->execute([$pseudonym]);
 $ext_id = $stmt->fetchColumn();
@@ -113,32 +113,39 @@ echo "<!DOCTYPE html>
 $password_ok = 0;
 $error_message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    $new_password = $_POST['password'];
-    $validation_errors = validatePassword($new_password);
-    if (!empty($validation_errors)) {
-        $error_message = "Das Passwort erfüllt nicht alle Anforderungen:<br><ul><li>"
-            . implode("</li><li>", $validation_errors) . "</li></ul>";
-    } else {
 
-        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
-        try {
-            // $stmt = $pdo->prepare("UPDATE fd_patienten SET passwort_hash = ?, zugang_aktiv = TRUE WHERE pseudonym = ?");
-            $stmt = $pdo->prepare("UPDATE user_miq SET login_pass = ? WHERE master_uid = ?");
-            $stmt->execute([$password_hash, $pseudonym]);
-            echo "<table>
-                    <tr><td><h2>✅ Erfolgreich!</h2></td></tr>
-                    <tr><td><h3> Ihr Passwort ist gesetzt.<br>Sie können sich nun mit Ihren Zugangsdaten anmelden:</h3><br>
-                    <button type='submit' onclick=\"document.location.href='".LOGIN_LINK."'\">Hier klicken zur Anmeldung</button></td></tr>
-                </table>";
-            $password_ok = 1;
-        } catch (PDOException $e) {
-            die("<h2>❌Fehler beim Speichern des Passworts</h2>");
+    $new_password = $_POST['password'];
+    $password_confirm = $_POST['password_confirm'];
+
+    if ($new_password !== $password_confirm) {
+        $error_message = "❌ Die eingegebenen Passwörter stimmen nicht überein.";
+    } else {
+        $validation_errors = validatePassword($new_password);
+        
+        if (!empty($validation_errors)) {
+            $error_message = "Das Passwort erfüllt nicht alle Anforderungen:<br><ul><li>"
+                . implode("</li><li>", $validation_errors) . "</li></ul>";
+        } else {
+
+            $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+            try {
+                // $stmt = $pdo->prepare("UPDATE fd_patienten SET passwort_hash = ?, zugang_aktiv = TRUE WHERE pseudonym = ?");
+                $stmt = $pdo->prepare("UPDATE user_miq SET login_pass = ? WHERE master_uid = ?");
+                $stmt->execute([$password_hash, $pseudonym]);
+                echo "<table>
+                        <tr><td><h2>✅ Erfolgreich!</h2></td></tr>
+                        <tr><td><h3> Ihr Passwort ist gesetzt.<br>Sie können sich nun mit Ihren Zugangsdaten anmelden:</h3><br>
+                        <button type='submit' onclick=\"document.location.href='" . LOGIN_LINK . "'\">Hier klicken zur Anmeldung</button></td></tr>
+                    </table>";
+                $password_ok = 1;
+            } catch (PDOException $e) {
+                die("<h2>❌Fehler beim Speichern des Passworts</h2>");
+            }
         }
     }
-} 
+}
 
-if (!$password_ok){
+if (!$password_ok) {
     echo " 
     <form method='POST'>
     <h2>Passwort festlegen für '{$ext_id}'</h2>";
@@ -159,8 +166,12 @@ if (!$password_ok){
     </div>
     <label for='password'><strong>Neues Passwort:</strong></label>
     <input type='password' id='password' name='password' required><br>
-    
-    <button type='submit'>Passwort speichern</button>
+    <label for='password'><strong>Neues Passwort:</strong></label>
+    <input type='password' id='password' name='password' required><br>
+
+    <label for='password_confirm'><strong>Passwort wiederholen:</strong></label>
+    <input type='password' id='password_confirm' name='password_confirm' required><br>
+        <button type='submit'>Passwort speichern</button>
     </form>
     ";
 }
