@@ -5,21 +5,6 @@ ini_set('display_errors', 1);
 require 'config_connections_local.php';
 
 $pseudonym = $_GET['login'] ?? '';
-
-
-$ip = $_SERVER['REMOTE_ADDR'];
-$identifier = hash('sha256', $ip . $pseudonym);
-
-$stmt = $pdo->prepare("SELECT attempts, last_attempt FROM user_miq_password_attempts WHERE identifier = ?");
-$stmt->execute([$identifier]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($row) {
-    if ($row['attempts'] >= 5 && strtotime($row['last_attempt']) > strtotime('-15 minutes')) {
-        die("❌ Zu viele Fehlversuche. Bitte warten Sie 15 Minuten.");
-    }
-}
-
 $token = $_GET['token'] ?? '';
 
 if (!file_exists(CONFIG_PATH)) {
@@ -126,17 +111,6 @@ echo "<!DOCTYPE html>
         <body>
 ";
 $password_ok = 0;
-
-$stmt = $pdo->prepare("
-    INSERT INTO user_miq_password_attempts (identifier, attempts, last_attempt)
-    VALUES (?, 1, NOW())
-    ON DUPLICATE KEY UPDATE
-        attempts = attempts + 1,
-        last_attempt = NOW()
-");
-$stmt->execute([$identifier]);
-
-
 $error_message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -158,8 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // $stmt = $pdo->prepare("UPDATE fd_patienten SET passwort_hash = ?, zugang_aktiv = TRUE WHERE pseudonym = ?");
                 $stmt = $pdo->prepare("UPDATE user_miq SET login_pass = ? WHERE master_uid = ?");
                 $stmt->execute([$password_hash, $pseudonym]);
-                $stmt = $pdo->prepare("DELETE FROM password_attempts WHERE identifier = ?");
-                $stmt->execute([$identifier]);
                 echo "<table>
                         <tr><td><h2>✅ Erfolgreich!</h2></td></tr>
                         <tr><td><h3> Ihr Passwort ist gesetzt.<br>Sie können sich nun mit Ihren Zugangsdaten anmelden:</h3><br>
