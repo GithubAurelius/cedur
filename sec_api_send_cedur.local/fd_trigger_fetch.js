@@ -9,7 +9,7 @@ function trigger_post(post_file, saveButton, pseudonym, patienten_email) {
     formData.append('pseudonym', pseudonym);
     formData.append('patienten_email', patienten_email);
     // Hier könnten weitere Daten hinzugefügt werden, z.B. Token etc.
-
+    
     // Asynchronen Fetch-Aufruf starten
     fetch(post_file, { 
         method: 'POST',
@@ -39,7 +39,7 @@ function trigger_post(post_file, saveButton, pseudonym, patienten_email) {
         })
         .catch(error => {
             // Verbindung/Netzwerkfehler abfangen
-            if (feedbackIcon) feedbackIcon.textContent = '❌';
+            if (feedbackIcon) feedbackIcon.textContent = '❌';console.log(Object.fromEntries(formData));
             alert(`Ein kritischer Fehler ist aufgetreten. Der Server konnte nicht kontaktiert werden. (${error.message})`);
             console.error('Fetch-Fehler:', error);
         })

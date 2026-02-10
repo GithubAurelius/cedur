@@ -13,7 +13,7 @@ if ($_POST) {
             $ran_str .= $zeichen[random_int(0, $max)];
         }
         return $ran_str;
-    }
+    } 
 
     $ext_fcid   = $_POST['FF_' . $_SESSION['param']['ext_fcid']] ?? "";
 
@@ -103,8 +103,8 @@ if ($_POST) {
         const formData = new URLSearchParams();
         formData.append('pseudonym', pseudonym);
         formData.append('patienten_email', patienten_email);
+        // console.log(Object.fromEntries(formData));
         // Hier könnten weitere Daten hinzugefügt werden, z.B. Token etc.
-
         // Asynchronen Fetch-Aufruf starten
         fetch(post_file, {
                 method: 'POST',
@@ -202,7 +202,7 @@ if ($_POST) {
         actButton.addEventListener('click', () => {
             event.preventDefault();
             const pseudonym = pid;
-            trigger_post('../' + api_path + '/fd_trigger_mail.php', actButton, pseudonym, '');
+            trigger_post('../' + api_path + 'fd_trigger_mail.php', actButton, pseudonym, '');
             last_mail_info.value = get_ts();
             fetchDataAndUpdateForm(pid, 10003, 33, last_mail_info.value);
         });

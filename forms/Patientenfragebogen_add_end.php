@@ -123,7 +123,7 @@
         // if (first_visit) 
         field_in_group_validation('111200', ['Ja'], ['111301', '115500'], 'one'); // misc medical conditions
         // if (first_visit) 
-        field_in_group_validation('115500', ['Ja'], ['115501'], 'one'); // medical conditions
+        // field_in_group_validation('115500', ['Ja'], ['115501'], 'one'); // medical conditions
         // date comparison first symptoms to diagnosis
         // if (first_visit) 
         compare_dates('FF_102300', 'FF_102200', '<=');

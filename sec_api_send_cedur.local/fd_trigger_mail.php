@@ -5,7 +5,7 @@ require 'config_connections_local.php';
 # $pseudonym = '2025071613464334'; 
 $pseudonym = $_POST['pseudonym'];
 
-$pdo = new PDO('mysql:host=localhost;dbname=cedur', 'cedur_admin', 'Aurel12##33');
+$pdo = new PDO('mysql:host=localhost;dbname=cedur', 'mdueffelmeyer', 'Aurel12##3355');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);            
 $stmt = $pdo->prepare("SELECT login_name FROM user_miq WHERE master_uid = ?");
 $stmt->execute([$pseudonym]);

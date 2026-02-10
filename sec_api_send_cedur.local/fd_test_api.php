@@ -12,11 +12,7 @@
 
 require 'config_connections_local.php';
 
-// Test Senden
-$url = FD_SEND_MAIL_ADDRESS_LOCAL_TRIGGER . '?pseudonym=1025071613464334&patienten_email=marc@mustermann.de';
-$response = file_get_contents($url);
-echo "TEST senden:".$response."<br>";
- 
+
 
 function get_remote_email($url){
     $patienten_email_remote = "F_01: E-Mail nicht verfügbar"; 
@@ -39,8 +35,13 @@ function get_remote_email($url){
     return $patienten_email_remote;
 }
 
-$patienten_email_remote = get_remote_email(FD_GET_MAIL_LOCAL_TRIGGER . '?pseudonym=2025071613464334');
+$patienten_email_remote = get_remote_email(FD_GET_MAIL_LOCAL_TRIGGER . '?pseudonym=1025071613464334');
 
+// Test Senden
+$url = FD_SEND_MAIL_ADDRESS_LOCAL_TRIGGER . '?pseudonym=1025071613464334&patienten_email=marc@dueffelmeyer.de';
+$response = file_get_contents($url);
+echo "TEST senden:".$response."<br>";
+ 
 
 ?>
 <body>
