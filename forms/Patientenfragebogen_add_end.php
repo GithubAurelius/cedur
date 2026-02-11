@@ -733,10 +733,10 @@
     if (mmtt >= 101 && mmtt < 111) {
         smiley_png = 'smileyC_new_year.png';
     }
-    if (mmtt >= 111 && mmtt < 213) {
+    if (mmtt >= 111 && mmtt < 211) {
         smiley_png = 'smileyC_winter.png';
     }
-    if (mmtt >= 213 && mmtt < 215) {
+    if (mmtt >= 211 && mmtt < 215) {
         smiley_png = 'smileyC_valentintag.png';
     }
     if (mmtt >= 215 && mmtt < 218) {
