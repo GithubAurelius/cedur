@@ -221,7 +221,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_102800'>
                             <input data-rcb='102800' required class='sim_hide' type='text' id='FF_102800' name='FF_102800' value="<?php echo $form_data_a[102800] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_102800_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_102800_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -275,7 +275,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_102805'>
                             <input data-rcb='102805' required class='sim_hide' type='text' id='FF_102805' name='FF_102805' value="<?php echo $form_data_a[102805] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_102805_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_102805_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -340,7 +340,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_106200'>
                             <input data-rcb='106200'  class='sim_hide' type='text' id='FF_106200' name='FF_106200' value="<?php echo $form_data_a[106200] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_106200_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_106200_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -403,7 +403,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105000'>
                             <input data-rcb='105000' required class='sim_hide' type='text' id='FF_105000' name='FF_105000' value="<?php echo $form_data_a[105000] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105000_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105000_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -417,7 +417,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105100'>
                             <input data-rcb='105100'  class='sim_hide' type='text' id='FF_105100' name='FF_105100' value="<?php echo $form_data_a[105100] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105100_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105100_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -429,7 +429,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105200'>
                             <input data-rcb='105200'  class='sim_hide' type='text' id='FF_105200' name='FF_105200' value="<?php echo $form_data_a[105200] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105200_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105200_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -443,7 +443,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105300'>
                             <input data-rcb='105300'  class='sim_hide' type='text' id='FF_105300' name='FF_105300' value="<?php echo $form_data_a[105300] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105300_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105300_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -457,7 +457,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105400'>
                             <input data-rcb='105400'  class='sim_hide' type='text' id='FF_105400' name='FF_105400' value="<?php echo $form_data_a[105400] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105400_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105400_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -469,7 +469,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105500'>
                             <input data-rcb='105500'  class='sim_hide' type='text' id='FF_105500' name='FF_105500' value="<?php echo $form_data_a[105500] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105500_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105500_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -481,7 +481,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105600'>
                             <input data-rcb='105600'  class='sim_hide' type='text' id='FF_105600' name='FF_105600' value="<?php echo $form_data_a[105600] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105600_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105600_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -493,7 +493,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105700'>
                             <input data-rcb='105700'  class='sim_hide' type='text' id='FF_105700' name='FF_105700' value="<?php echo $form_data_a[105700] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105700_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105700_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -505,7 +505,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105800'>
                             <input data-rcb='105800'  class='sim_hide' type='text' id='FF_105800' name='FF_105800' value="<?php echo $form_data_a[105800] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105800_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105800_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -517,7 +517,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_105900'>
                             <input data-rcb='105900'  class='sim_hide' type='text' id='FF_105900' name='FF_105900' value="<?php echo $form_data_a[105900] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_105900_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_105900_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -534,7 +534,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_108500'>
                             <input data-rcb='108500' required class='sim_hide' type='text' id='FF_108500' name='FF_108500' value="<?php echo $form_data_a[108500] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_108500_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_108500_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -548,7 +548,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_109100'>
                             <input data-rcb='109100' required class='sim_hide' type='text' id='FF_109100' name='FF_109100' value="<?php echo $form_data_a[109100] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_109100_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_109100_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -570,7 +570,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_109300'>
                             <input data-rcb='109300'  class='sim_hide' type='text' id='FF_109300' name='FF_109300' value="<?php echo $form_data_a[109300] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_109300_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_109300_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -584,7 +584,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_109400'>
                             <input data-rcb='109400'  class='sim_hide' type='text' id='FF_109400' name='FF_109400' value="<?php echo $form_data_a[109400] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_109400_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_109400_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -596,7 +596,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_110100'>
                             <input data-rcb='110100'  class='sim_hide' type='text' id='FF_110100' name='FF_110100' value="<?php echo $form_data_a[110100] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_110100_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_110100_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -674,7 +674,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_108800'>
                             <input data-rcb='108800'  class='sim_hide' type='text' id='FF_108800' name='FF_108800' value="<?php echo $form_data_a[108800] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_108800_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_108800_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -686,7 +686,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_108900'>
                             <input data-rcb='108900'  class='sim_hide' type='text' id='FF_108900' name='FF_108900' value="<?php echo $form_data_a[108900] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_108900_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_108900_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -737,7 +737,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_102400'>
                             <input data-rcb='102400' required class='sim_hide' type='text' id='FF_102400' name='FF_102400' value="<?php echo $form_data_a[102400] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_102400_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_102400_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -783,7 +783,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_103505'>
                             <input data-rcb='103505' required class='sim_hide' type='text' id='FF_103505' name='FF_103505' value="<?php echo $form_data_a[103505] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_103505_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_103505_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -819,7 +819,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_104500'>
                             <input data-rcb='104500' required class='sim_hide' type='text' id='FF_104500' name='FF_104500' value="<?php echo $form_data_a[104500] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_104500_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_104500_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -831,7 +831,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_104200'>
                             <input data-rcb='104200' required class='sim_hide' type='text' id='FF_104200' name='FF_104200' value="<?php echo $form_data_a[104200] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_104200_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_104200_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -843,7 +843,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_111200'>
                             <input data-rcb='111200' required class='sim_hide' type='text' id='FF_111200' name='FF_111200' value="<?php echo $form_data_a[111200] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_111200_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_111200_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1032,7 +1032,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_116100'>
                             <input data-rcb='116100' required class='sim_hide' type='text' id='FF_116100' name='FF_116100' value="<?php echo $form_data_a[116100] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_116100_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_116100_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1190,7 +1190,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_104300'>
                             <input data-rcb='104300'  class='sim_hide' type='text' id='FF_104300' name='FF_104300' value="<?php echo $form_data_a[104300] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_104300_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_104300_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1202,7 +1202,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_104400'>
                             <input data-rcb='104400'  class='sim_hide' type='text' id='FF_104400' name='FF_104400' value="<?php echo $form_data_a[104400] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_104400_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_104400_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1217,7 +1217,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_104800'>
                             <input data-rcb='104800' required class='sim_hide' type='text' id='FF_104800' name='FF_104800' value="<?php echo $form_data_a[104800] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_104800_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_104800_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1248,7 +1248,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_115600'>
                             <input data-rcb='115600' required class='sim_hide' type='text' id='FF_115600' name='FF_115600' value="<?php echo $form_data_a[115600] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_115600_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_115600_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1260,7 +1260,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_115700'>
                             <input data-rcb='115700' required class='sim_hide' type='text' id='FF_115700' name='FF_115700' value="<?php echo $form_data_a[115700] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_115700_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_115700_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1272,7 +1272,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_115800'>
                             <input data-rcb='115800' required class='sim_hide' type='text' id='FF_115800' name='FF_115800' value="<?php echo $form_data_a[115800] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_115800_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_115800_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1284,7 +1284,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_115900'>
                             <input data-rcb='115900' required class='sim_hide' type='text' id='FF_115900' name='FF_115900' value="<?php echo $form_data_a[115900] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_115900_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_115900_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1296,7 +1296,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_116000'>
                             <input data-rcb='116000' required class='sim_hide' type='text' id='FF_116000' name='FF_116000' value="<?php echo $form_data_a[116000] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_116000_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_116000_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1312,7 +1312,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_110900'>
                             <input data-rcb='110900'  class='sim_hide' type='text' id='FF_110900' name='FF_110900' value="<?php echo $form_data_a[110900] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_110900_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_110900_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1369,7 +1369,7 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_110400'>
                             <input data-rcb='110400'  class='sim_hide' type='text' id='FF_110400' name='FF_110400' value="<?php echo $form_data_a[110400] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_110400_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_110400_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
@@ -1394,20 +1394,26 @@ require_once MIQ_ROOT . "/modules/form_base/form_start.php";
                         <div id='cbm_110905'>
                             <input data-rcb='110905' required class='sim_hide' type='text' id='FF_110905' name='FF_110905' value="<?php echo $form_data_a[110905] ?? ''; ?>"  onchange='follow_select(this)'>
                             <label class='custom-checkbox-wrapper'><span id='CB_110905_Ja' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Ja</span></label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             <label class='custom-checkbox-wrapper'><span id='CB_110905_Nein' class='custom-checkbox'></span> <span class='custom-checkbox-label'>Nein</span></label>
                         </div>
                     </div>
 			</fieldset>
 			<fieldset id='FS_9517'><legend><span id='C_9517'></span>Stuhldrang</legend>
 					
-                    <div class='col_a' id='SH_119000_a'>
-                        <div class='desc_f' > Wie stark war Ihr plötzlicher oder dringender Stuhldrang in den vergangenen 24 Stunden (0 für keinen Stuhldrang bis 10 für schlimmstmöglicher Stuhldrang)?</div>
+                    <div class='col' style='width:100%' id='SH_119000'>
+                        <div class='desc_f'> Wie stark war Ihr Stuhldrang (plötzliches oder dringendes Bedürfnis) in den vergangenen 24 Stunden? <br>➥ Bitte bewegen Sie den Schieberegler mit Finger oder Maus in die jeweilige Richtung.</div>
+                        <div class='slider-container'>
+                            <label for='119000_wertSchieberegler' class='slider-label start-label'>Kein Stuhldrang</label>
+                            <input class='wertSchieberegler' type='range' id='119000_wertSchieberegler' min='0' max='10' value=0 step='1'>
+                            <label for='119000_wertSchieberegler' class='slider-label end-label'>Schlimmstmöglicher Stuhldrang</label>
+                            <span style='position: absolute;left:42.9%;background-color:yellow;color:green;padding.right:2px;' id='wertSchieberegler_display_119000'>0</span>
+                        </div>
                     </div>
-                    <div class='col_b' id='SH_119000_b'>
-                        <select required id='FF_119000' name='FF_119000'  onchange='follow_select(this)'><option value=''></option><option value='0' <?php if (($form_data_a[119000] ?? '') == '0') echo 'selected'; ?>>0</option><option value='1' <?php if (($form_data_a[119000] ?? '') == '1') echo 'selected'; ?>>1</option><option value='2' <?php if (($form_data_a[119000] ?? '') == '2') echo 'selected'; ?>>2</option><option value='3' <?php if (($form_data_a[119000] ?? '') == '3') echo 'selected'; ?>>3</option><option value='4' <?php if (($form_data_a[119000] ?? '') == '4') echo 'selected'; ?>>4</option><option value='5' <?php if (($form_data_a[119000] ?? '') == '5') echo 'selected'; ?>>5</option><option value='6' <?php if (($form_data_a[119000] ?? '') == '6') echo 'selected'; ?>>6</option><option value='7' <?php if (($form_data_a[119000] ?? '') == '7') echo 'selected'; ?>>7</option><option value='8' <?php if (($form_data_a[119000] ?? '') == '8') echo 'selected'; ?>>8</option><option value='9' <?php if (($form_data_a[119000] ?? '') == '9') echo 'selected'; ?>>9</option><option value='10' <?php if (($form_data_a[119000] ?? '') == '10') echo 'selected'; ?>>10</option>
-                        </select>
-                    </div>
+                    <input type='hidden' id='FF_119000' name='FF_119000' value="<?php echo htmlspecialchars($form_data_a[119000] ?? ''); ?>">
+                    <script>
+                        initSliderWithHiddenField('<?php echo 119000; ?>', 10);
+                    </script>
 			</fieldset>
 			<fieldset id='FS_1377995'><legend>Lebensqualität (SIDBQ)</legend>
 					
